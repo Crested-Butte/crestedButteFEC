@@ -3,7 +3,7 @@ import reactDom from "react-dom";
 
 
 const App = () => {
-  return <h1>Hello World</h1>
+  return <h1>Crested Butte</h1>
 }
 
 reactDom.render(<App/>, document.getElementById("root"))
