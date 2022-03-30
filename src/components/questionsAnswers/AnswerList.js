@@ -10,7 +10,6 @@ const AnswerList = (props) => {
   }
   return (
     <div>
-      <h4> ---List of Answers to a question</h4>
       {answersArr.length === 0 ? <h5>No Answers Yet</h5> : renderAnswers(answersArr)}
     </div>
   )

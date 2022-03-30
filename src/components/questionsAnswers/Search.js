@@ -10,6 +10,7 @@ const Search = (props) => {
   }
   const handleSubmit = (event) => {
     event.preventDefault();
+    alert('you can\'t search shit yet!')
     console.log(value)
   }
   return (

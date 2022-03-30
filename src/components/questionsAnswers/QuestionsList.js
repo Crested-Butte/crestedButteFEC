@@ -16,13 +16,18 @@ const QuestionsList = (props) => {
     }
   })
   const renderQuestions = (questions) => {
-    return questions.map((question) => {
-      return <IndividualQuestion key={question.question_id} question={question}/>
+    if (questions.length === 0) {
+      return <h3>No Questions yet</h3>
+    } else {
+      return questions.map((question) => {
+        return <IndividualQuestion key={question.question_id} question={question}/>
     })
+    }
+
   }
   return (
     <div>
-      <h2>-List of questions and answers</h2>
+      <h2>questions about {props.productName}</h2>
       {questions ? renderQuestions(questions) : <div>loading</div>}
     </div>
   )
