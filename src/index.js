@@ -11,7 +11,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     axios.defaults.baseURL = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/';
-    axios.defaults.headers.common['Authorization'] = TOKEN;
+    axios.defaults.headers.common['Authorization'] = TOKEN.TOKEN;
     this.state={
       data:[]
     }
