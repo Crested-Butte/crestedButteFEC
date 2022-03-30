@@ -4,12 +4,14 @@ import QuestionsAnswers from './components/questionsAnswers/index.js';
 import ProductDetails from './components/productDetails/index.js';
 import RelatedItems from './components/RelatedItems/index.js';
 import RatingsAndReviews from './components/RatingsAndReviews/index.js';
-
+const axios = require('axios');
+const TOKEN = require('../config.js');
 
 class App extends React.Component {
   constructor(props) {
     super(props);
-
+    axios.defaults.baseURL = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/';
+    axios.defaults.headers.common['Authorization'] = TOKEN;
     this.state={
       data:[]
     }
@@ -17,6 +19,7 @@ class App extends React.Component {
 
 
   render() {
+
     return (
       <div>
         <h1>Crested Butte</h1>
