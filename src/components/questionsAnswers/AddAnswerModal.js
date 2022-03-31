@@ -25,4 +25,4 @@ function AddAnswerModal(props) {
   );
 }
 
-export default AddAnswerModal
+export default AddAnswerModal;

@@ -1,10 +1,11 @@
 import React from 'react';
+import AddReviewModal from './AddReviewModal.js'
 
 // testing a new branch to be pushed upstream to origin
 
 
 function RatingsAndReviews (props) {
-      return <h1>Here I am!</h1>
+      return <AddReviewModal name = {props.product.name}/>
 }
 
 export default RatingsAndReviews;
