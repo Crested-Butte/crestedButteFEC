@@ -27,10 +27,11 @@ const QuestionsList = (props) => {
   }
   return (
     <div>
-      <h2>questions about {props.productName}</h2>
+
       {questions ? renderQuestions(questions) : <div>loading</div>}
     </div>
   )
 }
 
 export default QuestionsList
+//<h2>questions about {props.productName}</h2>

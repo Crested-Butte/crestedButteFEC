@@ -16,7 +16,7 @@ const QuestionsAnswers = (props) => {
   const renderOut = () => {
     return (
       <div>
-      <h1>Questions and Answers about {productName}</h1>
+      <h1>Questions about {productName}</h1>
       <Search/>
       <QuestionsList productName={productName} productId={productId}/>
       <AddQuestion/>
