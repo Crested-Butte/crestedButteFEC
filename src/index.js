@@ -11,33 +11,48 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     axios.defaults.baseURL = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/';
-    axios.defaults.headers.common['Authorization'] = TOKEN;
-    this.state={
-      data:[]
+    axios.defaults.headers.common['Authorization'] = TOKEN.TOKEN;
+    this.state = {
+      product: []
     }
+
+    this.getAll = this.getAll.bind(this);
+  }
+
+  getAll() {
+    return axios.get('/products/37315')
+      .then(({ data }) =>
+        this.setState({
+          product: data
+        })
+      )
+  }
+
+  componentDidMount() {
+    this.getAll();
   }
 
 
   render() {
-
+    console.log(this.state.products)
     return (
       <div>
         <h1>Crested Butte</h1>
 
         <div className="product-details">
-          <ProductDetails />
+          <ProductDetails product={this.state.product} />
         </div>
 
         <div className="related-items">
-          <RelatedItems />
+          <RelatedItems product={this.state.product} />
         </div>
 
         <div className="questions-answers">
-          <QuestionsAnswers />
+          <QuestionsAnswers product={this.state.product} />
         </div>
 
         <div className="ratings-reviews">
-          <RatingsAndReviews />
+          <RatingsAndReviews product={this.state.product} />
         </div>
 
       </div >
