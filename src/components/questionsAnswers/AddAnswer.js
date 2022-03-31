@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 
-const AddQuestion = (props) => {
+const AddAnswer = (props) => {
   const [values, setValues] = useState({})
 
+  //this.state = setState({values: {}})
   const handleChange = (event) => {
     event.persist();
     var key = event.target.id
@@ -15,8 +16,9 @@ const AddQuestion = (props) => {
   }
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (values.nickname && values.body && values.email) {
-      var str = 'sorry ' + values.nickname + ' the question: ' + values.body + ' is dumb'
+    console.log(values)
+    if (values.nickname && values.answer && values.email) {
+      var str = 'nickname: ' + values.nickname + '\n answer: ' + values.answer + '\n email: ' + values.email
       alert(str)
     } else {
        alert('one or more values missing')
@@ -26,13 +28,13 @@ const AddQuestion = (props) => {
   }
   return (
     <div>
-      <h1>Ask Your Question</h1>
-      <h2>About the {props.name}</h2>
+      <h1>Submit your Answer</h1>
+      <h2>{props.name}: {props.question}</h2>
       <form>
         <div>
           <label>
-          question
-          <input className="create-input" id="body" type="text" onChange={handleChange} placeholder="type question"></input>
+          answer
+          <input className="create-input" id="answer" type="text" onChange={handleChange} placeholder="type answer"></input>
         </label>
         </div>
         <div>
@@ -48,7 +50,7 @@ const AddQuestion = (props) => {
         </label>
         </div>
           <div>
-            <button className="addQuestionSubmit" onClick={handleSubmit} type="submit">Add Question</button>
+            <button className="addQuestionSubmit" onClick={handleSubmit} type="submit">Add Answer</button>
           </div>
 
       </form>
@@ -56,4 +58,4 @@ const AddQuestion = (props) => {
   )
 }
 
-export default AddQuestion
+export default AddAnswer

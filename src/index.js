@@ -20,7 +20,7 @@ class App extends React.Component {
   }
 
   getAll() {
-    return axios.get('/products/37315')
+    return axios.get('/products/37313')
       .then(({ data }) =>
         this.setState({
           product: data

@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from "react";
-import AnswerList from './AnswerList.js'
+import AnswerList from './AnswerList.js';
+import AddAnswerModal from './AddAnswerModal.js';
+//import sharedDateanDUSER
 const IndividualQuestion = (props) => {
   //const [question, setQuestion] = useState(props.question)
   var helpful = props.question.question_helpfulness
+  var body = props.question.question_body
+  console.log(props.question)
   return (
     <div>
-      <h4>question body: {props.question.question_body}</h4>
+      <h4>question body: {body}</h4>
       <AnswerList answers={props.question.answers}/>
       <p>end of answer list</p>
       <div>
@@ -13,7 +17,7 @@ const IndividualQuestion = (props) => {
         <span> {helpful} found helpful</span>
         </div>
       <div>
-        <button onClick={() => alert('you have nothing to contribute')}>add an answer</button>
+        <AddAnswerModal name={props.name} body={body}/>
       </div>
     </div>
   )
