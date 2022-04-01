@@ -19,7 +19,7 @@ function AddAnswerModal(props) {
          contentLabel="Minimal Modal Example"
       >
         <button onClick={handleClose}>Close Modal</button>
-        <AddAnswer name={productName} cb={handleClose} question={questionBody}/>
+        <AddAnswer name={productName} question={questionBody}/>
       </ReactModal>
     </div>
   );

@@ -16,7 +16,7 @@ const AddAnswer = (props) => {
   }
   const handleSubmit = (event) => {
     event.preventDefault();
-    //console.log(values)
+    console.log(values)
     if (values.nickname && values.answer && values.email) {
       var str = 'nickname: ' + values.nickname + '\n answer: ' + values.answer + '\n email: ' + values.email
       alert(str)
@@ -33,18 +33,14 @@ const AddAnswer = (props) => {
       <form>
         <div>
           <label>
-          answer:
-          <div>
-            <input className="create-input" id="answer" type="text" onChange={handleChange} placeholder="type answer"></input>
-          </div>
+          answer
+          <input className="create-input" id="answer" type="text" onChange={handleChange} placeholder="type answer"></input>
         </label>
         </div>
         <div>
           <label>
           nickname
-          <div>
-            <input className="create-input" id="nickname" type="text" onChange={handleChange} placeholder="type nickname"></input>
-          </div>
+          <input className="create-input" id="nickname" type="text" onChange={handleChange} placeholder="type nickname"></input>
         </label>
         </div>
         <div>
