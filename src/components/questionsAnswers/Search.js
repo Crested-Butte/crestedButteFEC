@@ -11,11 +11,11 @@ const Search = (props) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     alert('you can\'t search shit yet!')
-    console.log(value)
+    //console.log(value)
   }
   return (
     <div>
-      <h2> -search for questions and answers</h2>
+      <h5> -search for questions and answers</h5>
       <form>
           <input className="create-input" id="title" type="text" onChange={handleChange} placeholder="Have a question? Search for answers…"></input>
           <div>
