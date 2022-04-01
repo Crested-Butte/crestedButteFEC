@@ -4,7 +4,7 @@ import IndividualAnswer from './IndividualAnswer.js'
 const AnswerList = (props) => {
   const answersArr = Object.values(props.answers)
   const renderAnswers = (answers) => {
-    return answers.slice(0, 2).map((answer) => {
+    return answers.slice(0, 3).map((answer) => {
       return <IndividualAnswer key={answer.id} answer={answer}/>
     })
   }
