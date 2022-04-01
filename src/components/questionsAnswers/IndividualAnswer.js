@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 const IndividualAnswer = (props) => {
-  console.log(props.answer)
+  //console.log(props.answer)
   const answer = props.answer
   const date = answer.date
   const helpful = props.answer.helpfulness
