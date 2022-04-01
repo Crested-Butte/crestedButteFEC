@@ -9,7 +9,6 @@ import RatingsAndReviews from './components/RatingsAndReviews/index.js';
 const axios = require('axios');
 const TOKEN = require('../config.js');
 
-
 const App = function () {
   const [productId, setProductId] = useState('37313')
   const [product, setProduct] = useState()
