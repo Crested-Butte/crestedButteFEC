@@ -16,7 +16,7 @@ function AddReviewModal(props) {
       <button onClick={handleOpenModal}>Trigger Modal</button>
       <ReactModal
          isOpen={showModal}
-         contentLabel="Minimal Modal Example"
+         contentLabel="review modal"
       >
         <button onClick={handleCloseModal}>Close Modal</button>
         <AddReview name = {props.name}/>
