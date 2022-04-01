@@ -19,10 +19,11 @@ const QuestionsAnswers = (props) => {
 
 
   useEffect( () => {
-    if (!productName) {
+    console.log(productName)
+    if (props.product.name !== productName) {
       setProductName(props.product.name)
     }
-    if (!productId) {
+    if (props.product.id !== productId) {
       setProductId(props.product.id)
     }
 
@@ -31,7 +32,7 @@ const QuestionsAnswers = (props) => {
   const renderOut = () => {
     return (
       <div>
-      <h1>Questions about {productName}</h1>
+      <h4>Questions about {productName}</h4>
       <Search/>
 
       <QuestionsList productName={productName} productId={productId}/>
