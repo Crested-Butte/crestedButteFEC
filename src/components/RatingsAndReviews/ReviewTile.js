@@ -4,7 +4,33 @@ function ReviewTile(props) {
   const [vals, setValues] = useState();
 
   return (
-    <div>This is the review Tile</div>
+    <div>
+      <div className = "row">
+        <div className = "col">
+          Review Summary
+        </div>
+      </div>
+      <div className = "row">
+        <div className = "col">
+          Review Body
+        </div>
+      </div>
+      <div className = "row">
+        <div className = "col">
+          Reccomend review
+        </div>
+      </div>
+      <div className = "row">
+        <div className = "col">
+            Review Response
+        </div>
+      </div>
+      <div className = "row">
+        <div className = "col">
+            Rating helpfulnes
+        </div>
+      </div>
+    </div>
   )
 }
 
