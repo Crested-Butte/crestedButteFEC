@@ -1,34 +1,37 @@
 import React, {useState,useEffect} from 'react';
 import ReviewTile from './ReviewTile.js';
+const axios = require('axios');
 
 function ReviewList(props) {
-  const [vals, setValues] = setState({});
+  const [reviewData, setReviewData] = useState();
+  const [productId, setProductId] = useState();
 
 
-  function getProduct(val) {
-    return axios.get('/products/' + str + '/')
-      .then( ( response ) => {
-        console.log('insise axios', response.data)
-        setProduct(response.data)
+  const getAnswers = () => {
+    axios({
+      method: 'get',
+      url: '/reviews/',
+      params: {
+        product_id: props.productId
       }
-    )
+    }).then (res => {
+      setProductId(props.productId)
+      setReviewData(res.data.results)
+    })
   }
 
+  useEffect(() => {
+    if(props.productId !== productId) {
+      getAnswers()
+    }
+  })
+
+  console.log('We are here!', reviewData)
+
   return (
-    <table>
-    <thead>
-      <tr>ReviewListHead</tr>
-    </thead>
-    <tbody>
-    {ReviewTiles.map((reviewData, idx) =>
-              <ReviewTile
-                key = {reviewData._id}
-                newData = {post}
-                showBlogPost = {this.showBlogPost}/>
-            )}
-    </tbody>
-  </table>
+<div> here</div>
   )
 }
 
 export default ReviewList;
+

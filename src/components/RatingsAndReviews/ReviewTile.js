@@ -1,17 +1,10 @@
 import React, {useState,useEffect} from 'react';
 
 function ReviewTile(props) {
-  const [vals, setValues] = setState({});
+  const [vals, setValues] = useState();
 
   return (
-    <table>
-    <thead>
-      <tr>Review tile head</tr>
-    </thead>
-    <tbody>
-      <tr> Review tile body</tr>
-    </tbody>
-  </table>
+    <div>This is the review Tile</div>
   )
 }
 

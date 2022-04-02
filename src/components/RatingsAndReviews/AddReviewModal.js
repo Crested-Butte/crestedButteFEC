@@ -19,7 +19,7 @@ function AddReviewModal(props) {
          contentLabel="review modal"
       >
         <button onClick={handleCloseModal}>Close Modal</button>
-        <AddReview name = {props.name}/>
+        <AddReview name = {props.reviews}/>
       </ReactModal>
     </div>
   );
