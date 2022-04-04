@@ -3,7 +3,7 @@ import ReviewTile from './ReviewTile.js';
 const axios = require('axios');
 
 function ReviewList(props) {
-  const [reviewData, setReviewData] = useState();
+  const [reviewData, setReviewData] = useState(null);
   const [productId, setProductId] = useState();
 
 
@@ -18,7 +18,6 @@ function ReviewList(props) {
       setReviewData(res.data.results)
     })
   }
-  useEffect(() => {getAnswers()},[props.productId])
 
   const renderList= (arr) => {
     if (arr === undefined) {
@@ -32,8 +31,9 @@ function ReviewList(props) {
     }
   }
 
+  console.log(reviewData)
 
-  console.log(productId)
+  useEffect(() => {getAnswers()},[])
 
   return (
     <div className="container">

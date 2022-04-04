@@ -1,34 +1,37 @@
 import React, {useState, useEffect} from 'react';
+import getUserandDate from '../sharedComponents/userNameAndDate.js';
 
 function ReviewTile(props) {
   const [reviewData, setReviewData] = useState();
-  console.log('inside ReviewTile', props.review)
+  let {review} = props;
+
+  const reccomendReview = () => {
+    return (
+      <div className = "col">
+        {'checkmark : I reccomend this review'}
+      </div>
+    )
+  }
+
 
   return (
     <div>
       <div className = "row">
         <div className = "col">
+          {`Star Count : ${review.rating}`}
+        </div>
+        <div className = "col">
+          {getUserandDate(review)}
         </div>
       </div>
       <div className = "row">
-        <div className = "col">
-          {}
-        </div>
+        <strong>{review.summary}</strong>
       </div>
       <div className = "row">
-        <div className = "col">
-          Reccomend review
-        </div>
+        {review.body}
       </div>
       <div className = "row">
-        <div className = "col">
-            Review Response
-        </div>
-      </div>
-      <div className = "row">
-        <div className = "col">
-            Rating helpfulnes
-        </div>
+        {review.recommend ? reccomendReview() : null}
       </div>
     </div>
   )

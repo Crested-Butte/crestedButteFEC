@@ -9,7 +9,6 @@ const RatingsAndReviews = (props) => {
   return (
     <div>
       <ReviewList productId = {props.product.id}/>
-      <ReviewTile productId = {props.product.id}/>
     </div>
   )
 }
