@@ -15,13 +15,13 @@ const RelatedItemCard = (props) => {
   var getData =  (id) => {
     var str = '/products/' + id;
     return axios.get(str).then( (response) => {
-      console.log('data inside axios', response.data)
+    //  console.log('data inside axios', response.data)
       setData(response.data)
     })
   }
   useEffect(() => {
-    console.log('inside use effect of relatedItemCard')
-    console.log(id, props.id)
+   // console.log('inside use effect of relatedItemCard')
+  //  console.log(id, props.id)
     if (id !== props.id) {
       setId(props.id)
       getData(props.id)

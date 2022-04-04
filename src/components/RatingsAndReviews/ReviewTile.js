@@ -1,18 +1,18 @@
-import React, {useState,useEffect} from 'react';
+import React, {useState, useEffect} from 'react';
 
 function ReviewTile(props) {
-  const [vals, setValues] = useState();
+  const [reviewData, setReviewData] = useState();
+  console.log('inside ReviewTile', props.review)
 
   return (
     <div>
       <div className = "row">
         <div className = "col">
-          Review Summary
         </div>
       </div>
       <div className = "row">
         <div className = "col">
-          Review Body
+          {}
         </div>
       </div>
       <div className = "row">

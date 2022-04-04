@@ -3,7 +3,7 @@ import ReviewTile from './ReviewTile.js';
 const axios = require('axios');
 
 function ReviewList(props) {
-  const [reviewData, setReviewData] = useState([]);
+  const [reviewData, setReviewData] = useState();
   const [productId, setProductId] = useState();
 
 
@@ -15,37 +15,36 @@ function ReviewList(props) {
         product_id: props.productId
       }
     }).then (res => {
-      setProductId(props.productId)
       setReviewData(res.data.results)
     })
   }
+  useEffect(() => {getAnswers()},[props.productId])
 
-  useEffect(() => {
-    if(props.productId !== productId) {
-      getAnswers()
+  const renderList= (arr) => {
+    if (arr === undefined) {
+      return (<>loading</>)
+    } else {
+      return (arr.map((review, index) =>
+      <ReviewTile
+      key = {index}
+      review = {review}
+      />))
     }
-  })
+  }
 
-  console.log(reviewData)
+
+  console.log(productId)
 
   return (
     <div className="container">
       <div className="row">
         <div className="col">
-          Implement Sort here
+          TESTING
         </div>
       </div>
       <div className="row">
         <div className="col">
-          {reviewData.map((review, index) => {
-            return (
-              <div className="row">
-              <div className="col">
-                {`Review ${index} goes here`}
-              </div>
-            </div>
-            )
-          })}
+        { reviewData ? renderList(reviewData) : <>laoding!</>}
         </div>
       </div>
       <div className="row">
