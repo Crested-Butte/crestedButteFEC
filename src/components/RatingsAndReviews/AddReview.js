@@ -1,7 +1,8 @@
 import React, {useState,useEffect} from 'react';
+import StarRating from '../sharedComponents/StarRatings.js';
 
 function AddReview(props) {
-  const [vals, setValues] = useState({});
+  const [formData, setFormData] = useState({});
 
 
   const handleChange = (e) => {
@@ -9,45 +10,68 @@ function AddReview(props) {
     let targetId = e.target.id;
     let targetValue = e.target.value;
     setValues({
-      ...vals,
+      ...formData,
       [e.target.id]:targetValue
     })
-    console.log(targetValue)
   }
 
   const handleSubmit = (e) => {
     event.preventDefault();
+    // for data is
   }
 
-  return (
-    <div>
-      <h2>{`About the ${props.name}`}</h2>
-      <h1>Write Your Review</h1>
-      <form>
-        <div>
-          <label>
-          body
-          <textarea className="create-input" id="body" type="text" onChange={handleChange} maxLength = "1000" placeholder="Why did you like the product or not"></textarea>
-        </label>
-        </div>
-        <div>
-          <label>
-          summary
-          <input className="create-input" id="summary" type="text" onChange={handleChange} maxLength = "60" placeholder="Enter Summary Here"></input>
-        </label>
-        </div>
-        <div>
-          <label>
-          email
-          <input className="create-input" id="email" type="text" onChange={handleChange} placeholder="type email"></input>
-        </label>
-        </div>
-          <div>
-            <button className="addQuestionSubmit" onClick={handleSubmit} type="submit">Add Answer</button>
-          </div>
-      </form>
-    </div>
+  console.log(formData)
 
+  return (
+    <form>
+      <div className="row">
+        <div className="col">
+          <input className="form-control" id="name" type="text" onChange={handleChange} maxLength = "60" placeholder="Example: jackson11!"></input>
+          <h6>nickname</h6>
+        </div>
+        <div className="col">
+          <input className="form-control" id="email" type="text" onChange={handleChange} maxLength = "60" placeholder="Example: pschaeff@email.com"></input>
+          <h6>email</h6>
+        </div>
+      </div>
+      <div className="row">
+        <div className="col">
+            <input className="form-control" id="characteristics" type="text" onChange={handleChange} maxLength = "60" ></input>
+            <h6>characteristics</h6>
+        </div>
+      </div>
+      <div className="row">
+        <div className="col">
+          <textarea className="form-control" id="summary" type="text" onChange={handleChange} maxLength = "60" ></textarea>
+          <h6>summary</h6>
+        </div>
+      </div>
+      <div className="row">
+        <div className="col">
+          <textarea className="form-control" id="body" type="text" onChange={handleChange} maxLength = "1000"></textarea>
+          <h6>review body</h6>
+        </div>
+      </div>
+      <div className="row">
+        <div className="col">
+          {<StarRating/>}
+        </div>
+        <div className="col">
+          <h6>recommend Radio button Placeholder</h6>
+        </div>
+      </div>
+      <div className="row">
+        <div className="col">
+          <h6>Photo upload btn</h6>
+        </div>
+        <div className="col">
+          <h6>Image Thumbnails</h6>
+        </div>
+        <div className="col">
+          <h6>Submit Form Btn</h6>
+        </div>
+      </div>
+    </form>
   )
 }
 
