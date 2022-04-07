@@ -1,5 +1,8 @@
 import React, {useState,useEffect} from 'react';
 import StarRating from '../sharedComponents/StarRatings.js';
+import SmallButton from '../sharedComponents/SmallButton.js';
+import YesNoRadioButton from '../sharedComponents/yesNoRadioButton.js'
+const axios = require('axios').default;
 
 function AddReview(props) {
   const [formData, setFormData] = useState({});
@@ -9,15 +12,25 @@ function AddReview(props) {
     e.persist();
     let targetId = e.target.id;
     let targetValue = e.target.value;
-    setValues({
+    setFormData({
       ...formData,
       [e.target.id]:targetValue
     })
   }
 
   const handleSubmit = (e) => {
-    event.preventDefault();
-    // for data is
+    e.preventDefault();
+    axios({
+      method: 'post',
+      url: '/reviews',
+      params: formData
+    })
+      .then(res => console.log('success!', res))
+      .catch(err => console.log('err'));
+  }
+
+  const handleRecommend = (e) => {
+
   }
 
   console.log(formData)
@@ -31,7 +44,7 @@ function AddReview(props) {
         </div>
         <div className="col">
           <input className="form-control" id="email" type="text" onChange={handleChange} maxLength = "60" placeholder="Example: pschaeff@email.com"></input>
-          <h6>email</h6>
+          <h6>For privacy reasons, do not use your full name or email address</h6>
         </div>
       </div>
       <div className="row">
@@ -57,18 +70,18 @@ function AddReview(props) {
           {<StarRating/>}
         </div>
         <div className="col">
-          <h6>recommend Radio button Placeholder</h6>
+        <YesNoRadioButton/>
         </div>
       </div>
       <div className="row">
         <div className="col">
-          <h6>Photo upload btn</h6>
+        <SmallButton btnName = {'upload Photo'} onClick = {handleSubmit}/>
         </div>
         <div className="col">
           <h6>Image Thumbnails</h6>
         </div>
         <div className="col">
-          <h6>Submit Form Btn</h6>
+          <SmallButton btnName = {'submit'} onClick = {handleSubmit}/>
         </div>
       </div>
     </form>

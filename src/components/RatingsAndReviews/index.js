@@ -32,8 +32,8 @@ const RatingsAndReviews = (props) => {
         <div className = "col">
         </div>
         <div className = "col">
-        <button onClick = {openModal}>show Modal</button>
-        <AddReviewModal showModal = {showModal} closeModal = {closeModal}/>
+        {!showModal && <button onClick = {openModal}>show Modal</button>}
+        {showModal && <AddReviewModal showModal = {showModal} closeModal = {closeModal}/>}
         </div>
       </div>
     </div>

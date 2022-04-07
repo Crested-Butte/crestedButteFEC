@@ -14,9 +14,9 @@ function ReviewList(props) {
       params: {
         product_id: props.productId
       }
-    }).then (res => {
-      setReviewData(res.data.results)
     })
+      .then (res => {setReviewData(res.data.results)})
+      .catch(err => console.log(err));
   }
 
   const renderList= (arr) => {

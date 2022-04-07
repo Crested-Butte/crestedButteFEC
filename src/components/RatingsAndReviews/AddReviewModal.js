@@ -22,12 +22,12 @@ function AddReviewModal(props) {
           <div className="modal-footer">
             <p>the modal footer will go here</p>
           </div>
-          <button onClick={closeModal}>close</button>
+          <button onClick={closeModal}>`[X]`</button>
         </div>
       </div>
     )
   }
-  
+
   return (
     <>{showModal && renderModal()}</>
   )
