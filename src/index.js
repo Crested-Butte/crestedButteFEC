@@ -122,4 +122,3 @@ reactDom.render(<App />, document.getElementById("root"))
 // Related Items & Outfit Creation - High Priority
 // Questions & Answers - High Priority
 // Ratings & Reviews - High Priority
-
