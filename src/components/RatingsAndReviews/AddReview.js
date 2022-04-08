@@ -14,7 +14,7 @@ function AddReview(props) {
     let targetValue = e.target.value;
     setFormData({
       ...formData,
-      [e.target.id]:targetValue
+      [targetId]:targetValue
     })
   }
 
@@ -70,7 +70,7 @@ function AddReview(props) {
           {<StarRating/>}
         </div>
         <div className="col">
-        <YesNoRadioButton/>
+        <YesNoRadioButton onChange = {handleChange}/>
         </div>
       </div>
       <div className="row">
