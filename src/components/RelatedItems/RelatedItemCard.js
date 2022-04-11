@@ -5,18 +5,24 @@ const axios = require('axios');
 const RelatedItemCard = (props) => {
   const [id, setId] = useState()
   const[data, setData] =useState({})
+  //console.log(props.product)
+  //var id = props.product.id
   const styles = {
     item: {
       marginRight: 20
     }
   }
+
   var getData =  (id) => {
     var str = '/products/' + id;
     return axios.get(str).then( (response) => {
+      // console.log('data inside axios', response.data)
       setData(response.data)
     })
   }
   useEffect(() => {
+    // console.log('inside use effect of relatedItemCard')
+    // console.log(id, props.id)
     if (id !== props.id) {
       setId(props.id)
       getData(props.id)
@@ -24,11 +30,11 @@ const RelatedItemCard = (props) => {
   })
   function renderData () {
     return (
-      <div onClick={() => props.cb(id)} styles={styles.item}>
+      <div styles={styles.item}>
         <h4>category: {data.category}</h4>
         <h4>name: {data.name}</h4>
         <h4>price: {data.default_price}</h4>
-        <button onClick={() => props.cb(id)} >Go to this item</button>
+        <button onClick={() => {props.cb(id); $('.style-selector img').removeClass('selected');$('.style-selector .image0').addClass('selected');}} >Go to this item</button>
       </div>
     )
   }
