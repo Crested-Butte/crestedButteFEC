@@ -1,9 +1,24 @@
 import React, { useState, useEffect } from "react";
+const axios = require('axios');
 
 const AddAnswer = (props) => {
-  const [values, setValues] = useState({})
+  const [values, setValues] = useState()
+  const [id, setId] = useState(props.id)
 
-  //this.state = setState({values: {}})
+  useEffect(() => {
+    if (props.id !== id) {
+      setId(props.id)
+    }
+  })
+  const postAnswer = function (data) {
+    axios({
+      method: 'post',
+      url: '/qa/questions/' + id + '/answers',
+      data: data
+    }).then((response) => {
+      console.log(response)
+      })
+  }
   const handleChange = (event) => {
     event.persist();
     var key = event.target.id
@@ -16,10 +31,12 @@ const AddAnswer = (props) => {
   }
   const handleSubmit = (event) => {
     event.preventDefault();
-    //console.log(values)
-    if (values.nickname && values.answer && values.email) {
-      var str = 'nickname: ' + values.nickname + '\n answer: ' + values.answer + '\n email: ' + values.email
-      alert(str)
+    console.log(values, id, typeof id)
+    if (values.name && values.body && values.email) {
+      postAnswer(values)
+      //var str = 'nickname: ' + values.nickname + '\n answer: ' + values.answer + '\n email: ' + values.email
+      //alert(str)
+      props.cb()
     } else {
        alert('one or more values missing')
     }
@@ -35,7 +52,7 @@ const AddAnswer = (props) => {
           <label>
           answer:
           <div>
-            <input className="create-input" id="answer" type="text" onChange={handleChange} placeholder="type answer"></input>
+            <input className="create-input" id="body" type="text" onChange={handleChange} placeholder="type answer"></input>
           </div>
         </label>
         </div>
@@ -43,14 +60,16 @@ const AddAnswer = (props) => {
           <label>
           nickname
           <div>
-            <input className="create-input" id="nickname" type="text" onChange={handleChange} placeholder="type nickname"></input>
+            <input className="create-input" id="name" type="text" onChange={handleChange} placeholder="type nickname"></input>
           </div>
         </label>
         </div>
         <div>
           <label>
           email
-          <input className="create-input" id="email" type="text" onChange={handleChange} placeholder="type email"></input>
+          <div>
+            <input className="create-input" id="email" type="text" onChange={handleChange} placeholder="type email"></input>
+          </div>
         </label>
         </div>
           <div>
