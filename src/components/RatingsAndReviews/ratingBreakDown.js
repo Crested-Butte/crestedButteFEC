@@ -26,21 +26,27 @@ function RatingBreakDown(props) {
 
   return (
 
-    <div>
+    <div className = "flex-down-container">
       <div>
-        {sumData ? <ProgressBar ratings = {parseInt(reviewData[1])} sumData = {sumData}/> : null}
+        <h6>Ratings and Reviews</h6>
       </div>
       <div>
-        {sumData ? <ProgressBar ratings = {parseInt(reviewData[2])} sumData = {sumData}/> : null}
+        {sumData ? `Rating Average : ${sumData/5.0}` : null}
       </div>
       <div>
-        {sumData ? <ProgressBar ratings = {parseInt(reviewData[3])} sumData = {sumData}/> : null}
+        {sumData ? <ProgressBar starName = {'1'} ratings = {parseInt(reviewData[1])} sumData = {sumData}/> : null}
       </div>
       <div>
-        {sumData ? <ProgressBar ratings = {parseInt(reviewData[4])} sumData = {sumData}/> : null}
+        {sumData ? <ProgressBar starName = {'2'}  ratings = {parseInt(reviewData[2])} sumData = {sumData}/> : null}
       </div>
       <div>
-        {sumData ? <ProgressBar ratings = {parseInt(reviewData[5])} sumData = {sumData}/> : null}
+        {sumData ? <ProgressBar starName = {'3'}  ratings = {parseInt(reviewData[3])} sumData = {sumData}/> : null}
+      </div>
+      <div>
+        {sumData ? <ProgressBar starName = {'4'}  ratings = {parseInt(reviewData[4])} sumData = {sumData}/> : null}
+      </div>
+      <div>
+        {sumData ? <ProgressBar starName = {'5'} ratings = {parseInt(reviewData[5])} sumData = {sumData}/> : null}
       </div>
     </div>
 
