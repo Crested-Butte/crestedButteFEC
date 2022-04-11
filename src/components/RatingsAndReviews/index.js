@@ -8,8 +8,6 @@ const RatingsAndReviews = (props) => {
   const closeModal = () => setShowModal(null);
   const openModal = () => setShowModal(true);
 
-  console.log(showModal)
-
   return (
     <div>
       <div className = "row">
@@ -33,7 +31,11 @@ const RatingsAndReviews = (props) => {
         </div>
         <div className = "col">
         {!showModal && <button onClick = {openModal}>show Modal</button>}
-        {showModal && <AddReviewModal showModal = {showModal} closeModal = {closeModal}/>}
+        {showModal && <AddReviewModal
+          showModal = {showModal}
+          closeModal = {closeModal}
+          productName = {props.product.name}
+           />}
         </div>
       </div>
     </div>

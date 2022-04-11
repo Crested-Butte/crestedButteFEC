@@ -140,6 +140,14 @@ html {
   z-index: 1;
 }
 
+.modal-expand {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(229, 231, 239, 0.99);
+}
+
 
 .main-image img {
   position: absolute;
@@ -514,4 +522,9 @@ html {
 .footer .privacy {
   border-left: 2px solid var(--primary-color);
   border-right: 2px solid var(--primary-color);
+}
+
+.flex-right-container {
+  display: flex;
+  flex-direction: row;
 }
