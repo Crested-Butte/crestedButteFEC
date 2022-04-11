@@ -1,8 +1,15 @@
 import React, { useState, useEffect } from "react";
-
+const axios = require('axios');
 const AddQuestion = (props) => {
-  const [values, setValues] = useState({})
-
+  const [values, setValues] = useState({product_id: props.id})
+  useEffect(() => {
+    if (props.id !== values.product_id) {
+      setValues({
+        ...values,
+        product_id: props.id
+      })
+    }
+  })
   const handleChange = (event) => {
     event.persist();
     var key = event.target.id
@@ -13,16 +20,26 @@ const AddQuestion = (props) => {
     })
     //console.log(values)
   }
+  const postQuestion = function (data) {
+    axios({
+    method: 'post',
+    url: '/qa/questions',
+    data: data
+    }).then((response) => {
+      console.log(response)
+      })
+  }
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (values.nickname && values.body && values.email) {
+    if (values.name && values.body && values.email) {
       var str = 'sorry ' + values.nickname + ' the question: ' + values.body + ' is dumb'
-      alert(str)
+      //alert(str)
+      postQuestion(values)
+      props.cb()
     } else {
        alert('one or more values missing')
     }
-
-
   }
   return (
     <div>
@@ -38,7 +55,7 @@ const AddQuestion = (props) => {
         <div>
           <label>
           nickname
-          <input className="create-input" id="nickname" type="text" onChange={handleChange} placeholder="type nickname"></input>
+          <input className="create-input" id="name" type="text" onChange={handleChange} placeholder="type nickname"></input>
         </label>
         </div>
         <div>
