@@ -19,7 +19,7 @@ const QuestionsAnswers = (props) => {
 
 
   useEffect( () => {
-    console.log(productName)
+    // console.log(productName)
     if (props.product.name !== productName) {
       setProductName(props.product.name)
     }

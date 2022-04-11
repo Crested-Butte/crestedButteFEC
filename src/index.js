@@ -16,7 +16,6 @@ const App = function () {
   axios.defaults.headers.common['Authorization'] = TOKEN.TOKEN;
 
   function changeProductPage(str) {
-    console.log('insideProduct')
     setProductId(str)
     getProduct(str)
   }
@@ -24,37 +23,83 @@ const App = function () {
   function getProduct(str) {
     str = str || productId
     return axios.get('/products/' + str + '/')
-      .then( ( response ) => {
-        console.log('insise axios', response.data)
+      .then((response) => {
         setProduct(response.data)
       }
-    )
+      )
   }
 
   useEffect(() => {
     if (!product) {
       getProduct()
-    }
+    };
   })
+
+  $(window).scroll(function () {
+    var scroll = $(window).scrollTop();
+    if (scroll >= 150) {
+      $(".sub-header").removeClass("display").animate({
+        top: 0
+      }, 0);
+      $(".to-top").removeClass("display").animate({
+        right: '20px'
+      }, 0);
+    } else {
+      $(".sub-header").addClass("display").removeAttr("style");
+      $(".to-top").addClass("display").removeAttr("style");
+    }
+  });
+
+  function handleToTop() {
+    $(window).scrollTop(0);
+  }
 
   return (
     <div>
-      <h1>Crested Butte</h1>
+      <div className="header">
+        <div className="logo">
+          <img src="./data/logo.png"></img>
+        </div>
+        <div className="title">
+          <h1>CRESTED BUTTE</h1>
+        </div>
+        <div className="shopping-cart">
+          <i className="fas fa-shopping-cart"></i>
+        </div>
+        <div className="clear"></div>
+      </div>
+      <div className="sub-header header">
+        <div className="logo">
+          <img src="./data/darkLogo.png"></img>
+        </div>
+        <div className="title">
+          <h1>CRESTED BUTTE</h1>
+        </div>
+        <div className="shopping-cart">
+          <i className="fas fa-shopping-cart"></i>
+        </div>
+        <div className="clear"></div>
+      </div>
 
       <div className="product-details">
-        {product ? <ProductDetails product={product} /> : <div>loading</div>}
+        {product ? <ProductDetails product={product} productId={productId} /> : <div>loading</div>}
       </div>
 
       <div className="related-items">
-      {product ? <RelatedItems cb={changeProductPage} product={product} /> : <div>loading</div>}
+        {product ? <RelatedItems cb={changeProductPage} product={product} /> : <div>loading</div>}
       </div>
 
       <div className="questions-answers">
-      {product ? <QuestionsAnswers product={product} /> : <div>loading</div>}
+        {product ? <QuestionsAnswers product={product} /> : <div>loading</div>}
       </div>
 
       <div className="ratings-reviews">
-      {product ? <RatingsAndReviews product={product} /> : <div>loading</div>}
+        {product ? <RatingsAndReviews product={product} /> : <div>loading</div>}
+      </div>
+
+      <button onClick={handleToTop} className="to-top display"><i className="fas fa-arrow-up"></i></button>
+      <div className="footer">
+        <span className="terms">Terms of Service</span> <span className="privacy"> Privacy Policy</span> <span className="copyright">© 2022 Crested Butte, Inc.</span>
       </div>
 
     </div >
