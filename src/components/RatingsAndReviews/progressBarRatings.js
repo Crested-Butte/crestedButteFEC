@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
 
-function ProgressBar(props) {
+function ProgressBarRatings(props) {
 
   let {starName, ratings, sumData} = props;
-  console.log(sumData);
 
   const containerStyles = {
     height: 10,
@@ -36,4 +35,4 @@ function ProgressBar(props) {
   );
 }
 
-export default ProgressBar;
+export default ProgressBarRatings;

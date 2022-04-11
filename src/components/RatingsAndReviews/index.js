@@ -3,6 +3,7 @@ import AddReviewModal from './AddReviewModal.js';
 import ReviewList from './ReviewList.js';
 import ReviewTile from './ReviewTile.js';
 import RatingBreakDown from './ratingBreakDown.js';
+import ProductBreakDown from './ProductBreakDown.js'
 
 const RatingsAndReviews = (props) => {
   const[showModal, setShowModal] = useState(null)
@@ -13,7 +14,7 @@ const RatingsAndReviews = (props) => {
     <div>
       <div className = "row">
         <div className = "col">
-          <p>Placeholder for Rating Breakdown module  </p>
+          <RatingBreakDown productId = {props.product.id}/>
         </div>
         <div className = "col">
         <p>Placeholder for Sort Module </p>
@@ -21,7 +22,7 @@ const RatingsAndReviews = (props) => {
       </div>
       <div className = "row">
         <div className = "col">
-          <RatingBreakDown productId = {props.product.id}/>
+         Product BreakDown
         </div>
         <div className = "col">
           <ReviewList productId = {props.product.id}/>
