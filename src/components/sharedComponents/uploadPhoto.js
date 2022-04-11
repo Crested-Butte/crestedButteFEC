@@ -8,14 +8,13 @@ function UploadPhoto(props) {
       setPhoto(
         [...photos, URL.createObjectURL(e.target.files[0])],
         );
-        props.onChange('photo',photos)
     }
   };
 
   useEffect(
-    () => {
-      prevPhotos => setPhoto([...prevPhotos, 'invoke function'],[])
-    }
+     () => {
+      props.onChange('photo',photos);
+    }, [photos]
   )
 
   console.log(photos)

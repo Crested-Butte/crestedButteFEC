@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import AddReviewModal from './AddReviewModal.js';
 import ReviewList from './ReviewList.js';
 import ReviewTile from './ReviewTile.js';
+import RatingBreakDown from './ratingBreakDown.js';
 
 const RatingsAndReviews = (props) => {
   const[showModal, setShowModal] = useState(null)
@@ -20,7 +21,7 @@ const RatingsAndReviews = (props) => {
       </div>
       <div className = "row">
         <div className = "col">
-          <p>Placeholder for Product Breakdown module  </p>
+          <RatingBreakDown productId = {props.product.id}/>
         </div>
         <div className = "col">
           <ReviewList productId = {props.product.id}/>

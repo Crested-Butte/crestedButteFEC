@@ -524,7 +524,10 @@ html {
   border-right: 2px solid var(--primary-color);
 }
 
+
+/* Progress Bar */
 .flex-right-container {
   display: flex;
   flex-direction: row;
 }
+
