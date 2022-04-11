@@ -31,8 +31,6 @@ function ReviewList(props) {
     }
   }
 
-  console.log(reviewData)
-
   useEffect(() => {getAnswers()},[])
 
   return (
