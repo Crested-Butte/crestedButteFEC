@@ -6,9 +6,6 @@ const axios = require('axios');
 const RelatedItems = (props) => {
   const [related, setRelated] = useState()
   const [id, setId] =useState()
-  //console.log(props.product)
-  //console.log('cb', props.cb)
-  //var id = props.product.id
   const styles = {
     header: {
       width: '100%'
@@ -25,7 +22,6 @@ const RelatedItems = (props) => {
   var getRelated =  (str) => {
     var str = '/products/' + str + '/related'
     return axios.get(str).then( (response) => {
-      //console.log(response.data)
       setRelated(response.data.slice(0, 5))
     })
   }
@@ -40,7 +36,7 @@ const RelatedItems = (props) => {
     return (
         relatedNums.map((num) => {
           return (
-          <div style={styles.item}>
+          <div key={num} style={styles.item}>
             <RelatedItemCard cb={props.cb} key={num} id={num.toString()}/>
           </div>
           )
