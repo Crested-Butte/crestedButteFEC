@@ -1,8 +1,7 @@
 import React, {useState,useEffect} from 'react';
 
 function YesNoRadioButton(props){
-  const[selectbtn, setSelectbtn] = useState(false);
-  const[selectChnge, setSelectChnge] = useState();
+  const[selectbtn, setSelectbtn] = useState();
 
   const handlebuttonChange = (e) => {
     setSelectbtn(e.target.value)
@@ -13,33 +12,33 @@ function YesNoRadioButton(props){
 
   return (
     <div>
-      <div className="form-check">
-        <label>
+      <label>Reccomend</label>
+      <div className="form-check form-check-inline">
           <input
             type="radio"
             id="like"
             name="yes"
-            value="yes"
+            value="true"
             onChange = {handlebuttonChange}
-            checked = {selectbtn === 'yes'}
+            checked = {selectbtn === 'true'}
             className="form-check-input"
           />
-          yes
+          <label
+          className="form-check-label"> Yes
         </label>
       </div>
-
-      <div className="form-check">
-        <label>
+      <div className="form-check form-check-inline">
           <input
             type="radio"
             id="like"
             name="no"
-            value="no"
+            value="false"
             onChange = {handlebuttonChange}
-            checked = {selectbtn === 'no'}
+            checked = {selectbtn === 'false'}
             className="form-check-input"
           />
-          no
+          <label
+          className="form-check-label"> No
         </label>
       </div>
     </div>

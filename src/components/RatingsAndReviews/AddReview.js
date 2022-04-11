@@ -1,20 +1,62 @@
 import React, {useState,useEffect} from 'react';
-import StarRating from '../sharedComponents/StarRatings.js';
-import SmallButton from '../sharedComponents/SmallButton.js';
-import YesNoRadioButton from '../sharedComponents/yesNoRadioButton.js'
+import StarRating from '../sharedComponents/starRatings.js';
+import SmallButton from '../sharedComponents/smallButton.js';
+import YesNoRadioButton from '../sharedComponents/yesNoRadioButton.js';
+import Characteristics from './characteristics.js';
+import UploadPhoto from '../sharedComponents/uploadPhoto.js';
 const axios = require('axios').default;
 
 function AddReview(props) {
   const [formData, setFormData] = useState({});
+  const[showModal, setShowModal] = useState(null)
+  const closeModal = () => setShowModal(null);
+  const openModal = () => setShowModal(true);
 
-
-  const handleChange = (e) => {
+  const handleChangeText = (e) => {
     e.persist();
     let targetId = e.target.id;
     let targetValue = e.target.value;
     setFormData({
       ...formData,
       [targetId]:targetValue
+    });
+  }
+
+  const handleChangeGeneral = (propertyName, value) => {
+    setFormData({
+      ...formData,
+      [propertyName]:value
+    });
+  }
+
+  const handleChangeNumber = (e) => {
+    e.persist();
+    let targetId = e.target.id;
+    let targetValue = e.target.value;
+    setFormData({
+      ...formData,
+      [targetId]:parseInt(targetValue)
+    });
+  }
+
+  const handleChangeBoolean = (e) => {
+    e.persist();
+    let targetId = e.target.id;
+    let targetValue = e.target.value;
+    targetValue = targetValue ==='true'? true : false;
+    setFormData({
+      ...formData,
+      [targetId]:targetValue
+    })
+  }
+
+  const handleChangeCharacteristics = (e,name) => {
+    e.persist();
+    let targetId = e.target.id;
+    let targetValue = e.target.value;
+    setFormData({
+      ...formData,
+      ['characteristics']:{[name]:parseInt(targetValue)}
     })
   }
 
@@ -29,53 +71,54 @@ function AddReview(props) {
       .catch(err => console.log('err'));
   }
 
-  const handleRecommend = (e) => {
-
-  }
-
-  console.log(formData)
+  console.log(formData);
 
   return (
     <form>
       <div className="row">
         <div className="col">
-          <input className="form-control" id="name" type="text" onChange={handleChange} maxLength = "60" placeholder="Example: jackson11!"></input>
+          <input className="form-control" id="name" type="text" onChange={handleChangeText} maxLength = "60" placeholder="Example: jackson11!"></input>
           <h6>nickname</h6>
         </div>
         <div className="col">
-          <input className="form-control" id="email" type="text" onChange={handleChange} maxLength = "60" placeholder="Example: pschaeff@email.com"></input>
+          <input className="form-control" id="email" type="text" onChange={handleChangeText} maxLength = "60" placeholder="Example: pschaeff@email.com"></input>
           <h6>For privacy reasons, do not use your full name or email address</h6>
         </div>
       </div>
       <div className="row">
         <div className="col">
-            <input className="form-control" id="characteristics" type="text" onChange={handleChange} maxLength = "60" ></input>
+            <Characteristics catagoryId = {'Size'} onChange={handleChangeCharacteristics}/>
+            <Characteristics catagoryId = {'Width'} onChange={handleChangeCharacteristics}/>
+            <Characteristics catagoryId = {'Comfort'} onChange={handleChangeCharacteristics}/>
+            <Characteristics catagoryId = {'Quality'} onChange={handleChangeCharacteristics}/>
+            <Characteristics catagoryId = {'Length'} onChange={handleChangeCharacteristics}/>
+            <Characteristics catagoryId = {'Fit'} onChange={handleChangeCharacteristics}/>
             <h6>characteristics</h6>
         </div>
       </div>
       <div className="row">
         <div className="col">
-          <textarea className="form-control" id="summary" type="text" onChange={handleChange} maxLength = "60" ></textarea>
+          <textarea className="form-control" id="summary" type="text" onChange={handleChangeText} maxLength = "60" ></textarea>
           <h6>summary</h6>
         </div>
       </div>
       <div className="row">
         <div className="col">
-          <textarea className="form-control" id="body" type="text" onChange={handleChange} maxLength = "1000"></textarea>
+          <textarea className="form-control" id="body" type="text" onChange={handleChangeText} maxLength = "1000"></textarea>
           <h6>review body</h6>
         </div>
       </div>
       <div className="row">
         <div className="col">
-          {<StarRating/>}
+          <h6>Star Ratings go here!</h6>
         </div>
         <div className="col">
-        <YesNoRadioButton onChange = {handleChange}/>
+        <YesNoRadioButton onChange = {handleChangeBoolean}/>
         </div>
       </div>
       <div className="row">
         <div className="col">
-        <SmallButton btnName = {'upload Photo'} onClick = {handleSubmit}/>
+          <UploadPhoto onChange = {handleChangeGeneral}/>
         </div>
         <div className="col">
           <h6>Image Thumbnails</h6>
@@ -99,5 +142,5 @@ export default AddReview;
 -> characteristics? 5 radio buttons
 -> upload photos. Photos will render as thumbnial images
 -> nickname "maximum 60 chars"
--> submit review button
+-> submit review buttonjjj
 */

@@ -11,10 +11,11 @@ function AddReviewModal(props) {
 
   const renderModal = () => {
     return (
-      <div className = "modal-container">
+      <div className = "modal-expand">
         <div className = "modal-content">
           <div className ="modal-header">
-            <p>The modal title will go here</p>
+            <h5>Write Your Review</h5>ß
+            <h6>{`About the ${props.productName}`}</h6>
           </div>
           <div className="modal-body">
             <AddReview closeModal = {closeModal}/>
