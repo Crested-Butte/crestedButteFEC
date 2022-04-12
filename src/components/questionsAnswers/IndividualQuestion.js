@@ -23,12 +23,18 @@ const IndividualQuestion = (props) => {
   //console.log(props.question)
   return (
     <div>
-      <div><h4>Q: {body} </h4><span> Question helpful? <span onClick={() => increaseHelpful(qId)}>Yes: {helpful} found helpful</span></span></div>
-      <AnswerList answers={props.question.answers}/>
+      <div className="row">
+        <div className="col-5"><h4>Q: {body} </h4></div>
+        <div className="col-7">
+          <span>Helpful? <b  onClick={() => increaseHelpful(qId)} >yes</b> {helpful} found helpful</span>
+        </div>
+      </div>
+        <AnswerList answers={props.question.answers}/>
       <div>
         <AddAnswerModal name={props.name} id={qId} body={body}/>
       </div>
     </div>
+
   )
 }
 
