@@ -13,7 +13,17 @@ const ProductDetails = (props) => {
     const [productInfo, setProductInfo] = useState();
     const [favoriteStyles, setFavoriteStyles] = useState([]);
     const [product, setProduct] = useState(props.product);
-
+    const [styleName, setStyleName] = useState();
+    const [cart, setCart] = useState({
+        productName: product.name,
+        styles: "",
+        size: "",
+        qty: 0,
+        price: 0,
+        imageUrl: ""
+    })
+    console.log(product)
+    console.log(cart)
     const getStyles = (str) => {
         str = str || props.productId
         return axios.get(`/products/${str}/styles`)
@@ -23,11 +33,13 @@ const ProductDetails = (props) => {
                 data.results.map((style, index) => {
                     if (style['default?'] === true) {
                         setProductInfo(style)
+                        setStyleName(style.name)
                         hasDefault = true;
                     }
                 })
                 if (hasDefault === false) {
                     setProductInfo(data.results[0])
+                    setStyleName(data.results[0].name)
                 }
             }
             )
@@ -36,21 +48,30 @@ const ProductDetails = (props) => {
         getStyles();
         if (product !== props.product) {
             setProduct(props.product)
+            setCart({
+                productName: props.product.name,
+                styles: "",
+                size: "",
+                qty: 0,
+                price: 0,
+                imageUrl: ""
+            })
         }
     }, [props.productId])
 
-
+    console.log(styles)
     const handleClick = (id) => {
         const selectedStyle = [];
         styles.map(item => {
             if (item.style_id == id) {
                 selectedStyle.push(item);
+                setStyleName(item.name)
             }
         })
         setProductInfo(selectedStyle[0]);
 
     }
-
+    console.log(productInfo)
     const renderStyles = (styles) => {
         if (!styles) {
             return <div>loading...</div>
@@ -79,7 +100,7 @@ const ProductDetails = (props) => {
         }
     }
 
-    const handleAddBtn = () => {
+    const handleAddBtn = (style, size, qty, price, url) => {
         props.handleAddToCart()
     }
 
@@ -103,7 +124,7 @@ const ProductDetails = (props) => {
                         {productInfo ? <ProductInfo category={props.product.category} name={props.product.name} productInfo={productInfo} /> : <div>loading...</div>}
                     </div>
                     <div className="styles row">
-                        <h6>Styles</h6>
+                        <h6>Styles <span className="style-name">{styleName}</span></h6>
                         {styles.length && productInfo ? renderStyles(styles) : <div>loading...</div>}
                     </div>
                     <div className="dropdowns row">

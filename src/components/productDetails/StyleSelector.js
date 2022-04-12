@@ -41,6 +41,7 @@ const StyleSelector = (props) => {
 
   return (
     <React.Fragment>
+
       <div className="style-selector col-2">
         {render()}
       </div >

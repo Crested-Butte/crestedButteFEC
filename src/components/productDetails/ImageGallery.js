@@ -16,7 +16,6 @@ const ImageGallery = (props) => {
   })
 
   const onClickPrev = () => {
-
     if (imageIndex === 0) {
       setImageIndex(props.productInfo.photos.length - 1)
       $('.image-thumbnails').animate(
