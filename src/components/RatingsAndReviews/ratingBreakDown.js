@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import ProgressBarRatings from  './ProgressBarRatings.js';
+import ProgressBarRatings from  './progressBarRatings.js';
 const axios = require('axios');
 
 function RatingBreakDown(props) {

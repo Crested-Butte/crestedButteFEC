@@ -21,7 +21,7 @@ function ProgressBarRatings(props) {
   }
 
   return (
-    <div className = "flex-right-container ratings col-6">
+    <div className = "flex-right-container ratings">
       <div>
         <h6 className = "ratings-stars">Stars</h6>
       </div>

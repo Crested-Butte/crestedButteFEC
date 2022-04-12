@@ -13,18 +13,18 @@ const RatingsAndReviews = (props) => {
   return (
     <div>
       <div className = "row">
-        <div className = "col">
+        <div className = "col-4">
           <RatingBreakDown productId = {props.product.id}/>
         </div>
         <div className = "col">
-        <p>Placeholder for Sort Module </p>
+        <p>Placeholder CHANGES !!!!! </p>
         </div>
       </div>
       <div className = "row">
         <div className = "col">
-         Product BreakDown
+        <ProductBreakDown productId = {props.product.id}/>
         </div>
-        <div className = "col">
+        <div className = "col-8">
           <ReviewList productId = {props.product.id}/>
         </div>
       </div>
