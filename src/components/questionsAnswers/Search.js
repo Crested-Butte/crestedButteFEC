@@ -1,13 +1,17 @@
 import React, { useState, useEffect } from "react";
 
 const Search = (props) => {
-  const [value, setValue] = useState()
+  const [value, setValue] = useState('')
 
   const handleChange = (event) => {
     event.persist();
     setValue(event.target.value)
-    //console.log(event.target.value)
+
   }
+
+  useEffect(() => {
+    props.cb(value)
+  }, [value])
   const handleSubmit = (event) => {
     event.preventDefault();
     alert('you can\'t search shit yet!')

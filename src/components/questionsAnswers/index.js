@@ -9,36 +9,22 @@ const QuestionsAnswers = (props) => {
   const [productId, setProductId] = useState()
   const [productName, setProductName] = useState()
   const [showModal, setShowModal] = useState(false)
-  //console.log(props.product.id)
-  // axios({
-  //   url: '/products/' + productId
-  // }).then((response) => {
-  //   setProductName(response.data.name)
-  //   console.log(props.product)
-  // })
-
 
   useEffect( () => {
-    // console.log(productName)
     if (props.product.name !== productName) {
       setProductName(props.product.name)
     }
     if (props.product.id !== productId) {
       setProductId(props.product.id)
     }
-
   })
 
   const renderOut = () => {
     return (
       <div>
-      <h4>Questions about {productName}</h4>
-      <Search/>
-
-      <QuestionsList productName={productName} productId={productId}/>
+      {productName && productId ? <QuestionsList productName={productName} productId={productId}/> : <div>Loading</div>}
       <div>
-        <p>add question</p>
-        <AddQuestionModal name={productName}/>
+      {productName && productId ? <AddQuestionModal id={productId} name={productName}/> : <div>Loading</div>}
       </div>
     </div>
     )
@@ -50,5 +36,6 @@ const QuestionsAnswers = (props) => {
     </div>
   )
 }
-
+      // <h4>Questions about {productName}</h4>
+      // <Search/>
 export default QuestionsAnswers

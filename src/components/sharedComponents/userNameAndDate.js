@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from "react";
 
 const getUserandDate = function (props) {
-  const months = [null, 'january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december']
+  const months = [null, 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
   const day = props.date.slice(8, 10)
   const month = props.date.slice(5, 7)
   const year = props.date.slice(0, 4)
   const monthStr = Number.parseInt(month)
   var dateStr = months[monthStr] + ' ' + day + ', ' +year
-  var name = props.name
+  var name = props.name || props.reviewer_name;
   return (
-    <p>@{name} at {dateStr}</p>
+    <p>{`${name}, ${dateStr}`}</p>
   )
 }
 

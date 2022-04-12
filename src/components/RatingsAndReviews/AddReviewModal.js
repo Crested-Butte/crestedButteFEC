@@ -1,28 +1,37 @@
-import ReactModal from 'react-modal';
+
 import React, {useState, useEffect} from 'react';
 import AddReview from './AddReview.js';
 
-ReactModal.setAppElement('#root');
-
-
-
 function AddReviewModal(props) {
-  const [showModal, setShowModal] = useState(false);
-  const handleOpenModal = () => setShowModal(true);
-  const handleCloseModal = () => setShowModal(false);
+
+  let {showModal, closeModal} = props;
+
+
+  console.log('inside AddReviewModal',props)
+
+  const renderModal = () => {
+    return (
+      <div className = "modal-expand">
+        <div className = "modal-content">
+          <div className ="modal-header">
+            <h5>Write Your Review</h5>ß
+            <h6>{`About the ${props.productName}`}</h6>
+          </div>
+          <div className="modal-body">
+            <AddReview closeModal = {closeModal}/>
+          </div>
+          <div className="modal-footer">
+            <p>the modal footer will go here</p>
+          </div>
+          <button onClick={closeModal}>`[X]`</button>
+        </div>
+      </div>
+    )
+  }
 
   return (
-    <div>
-      <button onClick={handleOpenModal}>Trigger Modal</button>
-      <ReactModal
-         isOpen={showModal}
-         contentLabel="Minimal Modal Example"
-      >
-        <button onClick={handleCloseModal}>Close Modal</button>
-        <AddReview name = {props.name}/>
-      </ReactModal>
-    </div>
-  );
+    <>{showModal && renderModal()}</>
+  )
 }
 
 export default AddReviewModal;
