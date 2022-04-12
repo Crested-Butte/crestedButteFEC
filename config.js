@@ -1,3 +1,3 @@
 module.exports = {
-  TOKEN: 'github key here'
+  TOKEN: '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'
 };
