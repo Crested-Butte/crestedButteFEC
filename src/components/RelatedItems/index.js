@@ -5,11 +5,11 @@ const axios = require('axios');
 
 const RelatedItems = (props) => {
   const [related, setRelated] = useState()
+
   const [id, setId] =useState()
+
   const styles = {
-    header: {
-      width: '100%'
-    },
+
     wrapper: {
       borderTop: 'black solid 1px',
       display: 'flex',
@@ -19,12 +19,16 @@ const RelatedItems = (props) => {
       marginRight: 20
     }
   }
-  var getRelated =  (str) => {
+  var getRelated = (str) => {
     var str = '/products/' + str + '/related'
-    return axios.get(str).then( (response) => {
-      setRelated(response.data.slice(0, 5))
-    })
+
+    return axios.get(str).then((response) => {
+      //console.log(response.data)
+      setRelated(response.data.slice(0, 4))
+
+
   }
+
   useEffect(() => {
     if (id !== props.product.id) {
       setId(props.product.id)
@@ -32,23 +36,30 @@ const RelatedItems = (props) => {
     }
   })
 
-  var  renderRelated = (relatedNums) => {
+  var renderRelated = (relatedNums) => {
     return (
-        relatedNums.map((num) => {
-          return (
-          <div key={num} style={styles.item}>
-            <RelatedItemCard cb={props.cb} key={num} id={num.toString()}/>
-          </div>
-          )
-        })
-    )
 
+      relatedNums.map((num,index) =>
+          <div className="item-container col-3" key={index}>
+            <RelatedItemCard cb={props.cb} id={num.toString()} value ={index}/>
+
+
+          </div>
+      )
+    )
   }
 
   return (
-    <div style={styles.wrapper}>
-      <h2 style={styles.header}>Related Items</h2>
-      {related ? renderRelated(related) : <div>loading related</div>}
+    <div>
+      <div className="related-header">
+        <h1>Related Items</h1>
+        <div className="arrow-container">
+          <div className="arrow"></div>
+        </div>
+      </div>
+      <div className="related-product row">
+        {related ? renderRelated(related) : <div>loading related</div>}
+      </div>
     </div>
   )
 }
