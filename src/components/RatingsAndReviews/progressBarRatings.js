@@ -1,16 +1,15 @@
 import React, { useState, useEffect } from "react";
 
-function ProgressBar(props) {
+function ProgressBarRatings(props) {
 
-  let {ratings, sumData} = props;
-  console.log(sumData);
+  let {starName, ratings, sumData} = props;
 
   const containerStyles = {
-    height: 20,
+    height: 10,
     width: '100%',
     backgroundColor: 'grey',
     borderRadius: 50,
-    margin: 50
+    margin: 5
   }
 
   const fillerStyles = {
@@ -22,11 +21,18 @@ function ProgressBar(props) {
   }
 
   return (
-      <div style={containerStyles}>
-        <div style={fillerStyles}>
-        </div>
+    <div className = "flex-right-container ratings">
+      <div>
+        <h6 className = "ratings-stars">Stars</h6>
       </div>
+      <div style={containerStyles}>
+        <div style={fillerStyles}></div>
+      </div>
+      <div>
+        <h6>{ratings}</h6>
+      </div>
+    </div>
   );
 }
 
-export default ProgressBar;
+export default ProgressBarRatings;

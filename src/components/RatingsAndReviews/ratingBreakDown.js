@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import ProgressBar from  './progressBar.js';
+import ProgressBarRatings from  './progressBarRatings.js';
 const axios = require('axios');
 
 function RatingBreakDown(props) {
@@ -14,7 +14,8 @@ function RatingBreakDown(props) {
         product_id: props.productId
       }
     })
-      .then (res => res.data.ratings)
+      .then (res => {
+        return res.data.ratings})
       .then (data =>
         {setReviewData(data);
         setSumData(Object.values(data).reduce((a,b) => (parseInt(a) + parseInt(b))))})
@@ -26,21 +27,27 @@ function RatingBreakDown(props) {
 
   return (
 
-    <div>
+    <div className = "flex-down-container">
       <div>
-        {sumData ? <ProgressBar ratings = {parseInt(reviewData[1])} sumData = {sumData}/> : null}
+        <h6>Ratings and Reviews</h6>
       </div>
       <div>
-        {sumData ? <ProgressBar ratings = {parseInt(reviewData[2])} sumData = {sumData}/> : null}
+        {sumData ? `Rating Average : ${sumData/5.0}` : null}
       </div>
       <div>
-        {sumData ? <ProgressBar ratings = {parseInt(reviewData[3])} sumData = {sumData}/> : null}
+        {sumData ? <ProgressBarRatings starName = {'1'} ratings = {parseInt(reviewData[1])} sumData = {sumData}/> : null}
       </div>
       <div>
-        {sumData ? <ProgressBar ratings = {parseInt(reviewData[4])} sumData = {sumData}/> : null}
+        {sumData ? <ProgressBarRatings starName = {'2'}  ratings = {parseInt(reviewData[2])} sumData = {sumData}/> : null}
       </div>
       <div>
-        {sumData ? <ProgressBar ratings = {parseInt(reviewData[5])} sumData = {sumData}/> : null}
+        {sumData ? <ProgressBarRatings starName = {'3'}  ratings = {parseInt(reviewData[3])} sumData = {sumData}/> : null}
+      </div>
+      <div>
+        {sumData ? <ProgressBarRatings starName = {'4'}  ratings = {parseInt(reviewData[4])} sumData = {sumData}/> : null}
+      </div>
+      <div>
+        {sumData ? <ProgressBarRatings starName = {'5'} ratings = {parseInt(reviewData[5])} sumData = {sumData}/> : null}
       </div>
     </div>
 
