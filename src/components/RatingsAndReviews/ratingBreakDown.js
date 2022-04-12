@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ProgressBarRatings from  './progressBarRatings.js';
+import Stars from '../sharedComponents/starRatings';
 const axios = require('axios');
 
 function RatingBreakDown(props) {
@@ -31,8 +32,12 @@ function RatingBreakDown(props) {
       <div>
         <h6>Ratings and Reviews</h6>
       </div>
-      <div>
-        {sumData ? `Rating Average : ${sumData/5.0}` : null}
+      <div className ="flex-right-container">
+        <div>
+          {sumData ? `${sumData/5.0}` : null}
+        </div>
+        <div>
+        </div>
       </div>
       <div>
         {sumData ? <ProgressBarRatings starName = {'1'} ratings = {parseInt(reviewData[1])} sumData = {sumData}/> : null}
