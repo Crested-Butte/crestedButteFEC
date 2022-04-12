@@ -7,7 +7,7 @@ import UploadPhoto from '../sharedComponents/uploadPhoto.js';
 const axios = require('axios').default;
 
 function AddReview(props) {
-  const [formData, setFormData] = useState({});
+  const [formData, setFormData] = useState({['product_id']:props.productId});
   const[showModal, setShowModal] = useState(null)
   const closeModal = () => setShowModal(null);
   const openModal = () => setShowModal(true);
@@ -65,7 +65,7 @@ function AddReview(props) {
     axios({
       method: 'post',
       url: '/reviews',
-      params: formData
+      data: formData
     })
       .then(res => console.log('success!', res))
       .catch(err => console.log('err'));

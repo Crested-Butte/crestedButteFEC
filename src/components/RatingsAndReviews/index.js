@@ -11,34 +11,20 @@ const RatingsAndReviews = (props) => {
   const openModal = () => setShowModal(true);
 
   return (
-    <div>
-      <div className = "row">
-        <div className = "col-4">
-          <RatingBreakDown productId = {props.product.id}/>
-        </div>
-        <div className = "col">
-        <p>Placeholder CHANGES !!!!! </p>
-        </div>
-      </div>
-      <div className = "row">
-        <div className = "col">
+    <div className="row">
+      <div className="col-4 flex-down-container ">
+        <RatingBreakDown productId = {props.product.id}/>
         <ProductBreakDown productId = {props.product.id}/>
-        </div>
-        <div className = "col-8">
-          <ReviewList productId = {props.product.id}/>
-        </div>
       </div>
-      <div className = "row">
-        <div className = "col">
-        </div>
-        <div className = "col">
-        {!showModal && <button onClick = {openModal}>show Modal</button>}
+      <div className="col-8 flex-down-container ">
+        <ReviewList productId = {props.product.id}/>
+        <br></br>
+        {!showModal && <button onClick = {openModal}>Write a Review</button>}
         {showModal && <AddReviewModal
           showModal = {showModal}
           closeModal = {closeModal}
           productName = {props.product.name}
-           />}
-        </div>
+          productId = {props.product.id} />}
       </div>
     </div>
   )

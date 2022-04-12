@@ -543,3 +543,10 @@ html {
 .ratings-stars {
   text-decoration: underline;
 }
+
+.scroll-list {
+  overflow: auto;
+  float: left;
+  height:500px;
+  position:relative
+}

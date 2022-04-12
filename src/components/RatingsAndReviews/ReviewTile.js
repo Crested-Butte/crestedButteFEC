@@ -8,7 +8,7 @@ function ReviewTile(props) {
   const reccomendReview = () => {
     return (
       <div className = "col">
-        {'checkmark : I reccomend this review'}
+        {'\u221a : I reccomend this review'}
       </div>
     )
   }
