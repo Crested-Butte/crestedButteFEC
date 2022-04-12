@@ -50,6 +50,10 @@ html {
   padding: 12px;
 }
 
+.shopping-cart {
+  position: relative;
+}
+
 
 .logo img {
   width: 40px;
@@ -83,6 +87,17 @@ html {
   color: var(--primary-color);
   font-size: 14px;
   padding: 8px;
+}
+
+.indicator {
+  display: block;
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  top: -7px;
+  right: -7px;
+  border-radius: 14px;
+  background: #c51313;
 }
 
 .social-media {
@@ -269,7 +284,7 @@ html {
 }
 
 .slogan {
-  padding: 60px 40px;
+  padding: 60px;
   position: relative;
 
 }
@@ -287,9 +302,56 @@ html {
   margin-top: -10px;
 }
 
+.slogan h4 {
+  font-size: 26px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.slogan hr {
+  display: block;
+  color: var(--primary-color);
+  width: 150px;
+  opacity: 1;
+  height: 8px;
+
+}
+
 .features {
   padding: 60px 40px;
   background: var(--primary-color);
+  position: relative;
+}
+
+.features ul {
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.features ul li {
+  font-weight: bold;
+  list-style: none;
+  padding: 4px 0;
+  font-size: 18px;
+
+}
+
+.features ul li:before {
+  content: "\2605";
+  padding-right: 15px;
+}
+
+.features-bg {
+  font-size: 100px;
+  position: absolute;
+  color: white;
+  opacity: 0.15;
+  font-weight: bold;
+  right: 0;
+  bottom: -35px;
+  cursor:default;
 }
 
 .thumbnails-container button {
@@ -480,6 +542,8 @@ html {
   border: 2px solid var(--primary-color)
 }
 
+
+
 .to-top {
   position: fixed;
   bottom: 30px;
@@ -498,6 +562,105 @@ html {
 .to-top:hover {
   opacity: 1
 }
+
+/*****------------- Related Product -------------*****/
+
+.related-product{
+  padding:10px 5px;
+}
+
+.related-header{
+  text-align:center;
+  width:100%;
+  padding:60px 20px;
+  position: relative;
+  background-color:rgba(0,0,0,0.7)
+}
+
+
+.related-header:before {
+  content: ' ';
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.2;
+  background-image:url('https://images.unsplash.com/photo-1492447105260-2e947425b5cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80');
+  filter: blur(8px);
+  -webkit-filter: blur(8px);
+  background-repeat: no-repeat;
+  background-position: center;
+  /* background-attachment: fixed; */
+  background-size: cover;
+}
+
+
+.related-header h1{
+color:var(--primary-color);
+text-transform: uppercase;
+font-weight: bold;
+font-size:46px;
+padding-bottom: 15px;
+}
+
+.arrow{
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 20px 15px 0 15px;
+  border-color: var(--primary-color) transparent transparent transparent;
+  display: inline-flex;
+}
+.related-product {
+  margin:0;
+}
+
+.related-product .item{
+  background-color:#eeeeee;
+  position: relative;
+  overflow: hidden;
+}
+.related-product .item-image{
+width:100%;
+height:600px;
+position: relative;
+}
+
+.related-product .item-image img{
+  width:100%;
+  height: 100%;
+  object-fit:cover;
+  cursor:pointer;
+}
+
+.related-product .item-container{
+  padding:10px;
+}
+
+.item-info{
+  position: absolute;
+  width: 100%;
+  background: rgba(0,0,0,0.7);
+  bottom: -200px;
+  padding:30px 20px;
+  transition:0.5s;
+}
+.item-info h5{
+  padding:0 0 5px 0;
+  color:var(--primary-color);
+  font-weight:bold;
+
+}
+.item-info h6{
+color:white;
+text-transform: uppercase;
+}
+.hover{
+  bottom:0;
+}
+/*****------------- Footer -------------*****/
 
 .footer {
   padding: 40px 20px;

@@ -54,6 +54,10 @@ const App = function () {
     $(window).scrollTop(0);
   }
 
+  function handleAddToCart() {
+    $('.shopping-cart .display').addClass('indicator')
+  }
+
   return (
     <div>
       <div className="header">
@@ -65,6 +69,7 @@ const App = function () {
         </div>
         <div className="shopping-cart">
           <i className="fas fa-shopping-cart"></i>
+          <div className="display">&nbsp;</div>
         </div>
         <div className="clear"></div>
       </div>
@@ -77,16 +82,17 @@ const App = function () {
         </div>
         <div className="shopping-cart">
           <i className="fas fa-shopping-cart"></i>
+          <div className="display">&nbsp;</div>
         </div>
         <div className="clear"></div>
       </div>
 
       <div className="product-details">
-        {product ? <ProductDetails product={product} productId={productId} /> : <div>loading</div>}
+        {product ? <ProductDetails product={product} productId={productId} handleAddToCart={handleAddToCart} /> : <div>loading</div>}
       </div>
 
       <div className="related-items">
-        {product ? <RelatedItems cb={changeProductPage} product={product} /> : <div>loading</div>}
+        {product ? <RelatedItems cb={changeProductPage} productId={productId} product={product} /> : <div>loading</div>}
       </div>
 
       <div className="questions-answers">

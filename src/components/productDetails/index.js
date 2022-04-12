@@ -63,7 +63,6 @@ const ProductDetails = (props) => {
     }
 
     const handleFavoriteStyle = (id) => {
-        console.log(id)
         if (favoriteStyles.length < 1) {
             setFavoriteStyles([...favoriteStyles, productInfo]);
         } else {
@@ -80,7 +79,9 @@ const ProductDetails = (props) => {
         }
     }
 
-    console.log(favoriteStyles)
+    const handleAddBtn = () => {
+        props.handleAddToCart()
+    }
 
     return (
         <div>
@@ -109,7 +110,7 @@ const ProductDetails = (props) => {
                         {productInfo ? <Dropdowns productInfo={productInfo} /> : <div>loading...</div>}
                     </div>
                     <div className="add">
-                        <button>ADD TO CART</button>
+                        <button onClick={handleAddBtn}>ADD TO CART</button>
                     </div>
 
 
