@@ -16,7 +16,7 @@ function YesNoRadioButton(props){
       <div className="form-check form-check-inline">
           <input
             type="radio"
-            id="like"
+            id="recommend"
             name="yes"
             value="true"
             onChange = {handlebuttonChange}
@@ -30,7 +30,7 @@ function YesNoRadioButton(props){
       <div className="form-check form-check-inline">
           <input
             type="radio"
-            id="like"
+            id="recommend"
             name="no"
             value="false"
             onChange = {handlebuttonChange}

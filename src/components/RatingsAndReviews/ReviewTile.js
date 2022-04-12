@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import getUserandDate from '../sharedComponents/userNameAndDate.js';
+import Stars from '../sharedComponents/starRatings.js';
 
 function ReviewTile(props) {
   const [reviewData, setReviewData] = useState();
@@ -18,7 +19,7 @@ function ReviewTile(props) {
     <div>
       <div className = "row">
         <div className = "col">
-          {`Star Count : ${review.rating}`}
+          <Stars rating = {review.rating}/>
         </div>
         <div className = "col">
           {getUserandDate(review)}
