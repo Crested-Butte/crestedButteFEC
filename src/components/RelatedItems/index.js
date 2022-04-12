@@ -19,16 +19,13 @@ const RelatedItems = (props) => {
       marginRight: 20
     }
   }
-  var getRelated = (str) => {
-    var str = '/products/' + str + '/related'
-
-    return axios.get(str).then((response) => {
+  var getRelated =  (str) => {
+    var str = "/products/" + str + "/related"
+    return axios.get(str).then( (response) => {
       //console.log(response.data)
       setRelated(response.data.slice(0, 4))
-
-
+    })
   }
-
   useEffect(() => {
     if (id !== props.product.id) {
       setId(props.product.id)
