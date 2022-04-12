@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import IndividualQuestion from './IndividualQuestion.js'
 import Search from './Search.js'
+import AddQuestionModal from './AddQuestionModal.js'
 
 const axios = require('axios');
 
@@ -53,13 +54,31 @@ const QuestionsList = (props) => {
     }
   })
   return (
-    <div>
-      <h4>Questions about {props.productName}</h4>
-      <Search cb={setStringToSearch}/>
-      <button onClick={() => setNumberOfQuestions(numberOfQuestions + 2)}>Load more questions</button>
-      {questions ? renderQuestions(questions) : <div>loading</div>}
 
-    </div>
+    <div>
+    {questions ?
+      <div className="container">
+        <div className="row">
+          <div className="col-12"> <h4>Questions about {props.productName}</h4></div>
+        </div>
+        <div className="row">
+          <div className="col-6">
+            <Search cb={setStringToSearch}/>
+          </div>
+          <div className="col-6">
+              {numberOfQuestions < questions.length ? <button onClick={() => setNumberOfQuestions(numberOfQuestions + 2)}>Load more questions</button> : null}
+            </div>
+        </div>
+        <div>
+          <div className="row">
+
+            {questions ? renderQuestions(questions) : <div>loading</div>}
+          </div>
+          </div>
+        </div> :
+        null}
+      </div>
+
   )
 }
 
