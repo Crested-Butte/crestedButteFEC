@@ -8,7 +8,7 @@ const axios = require('axios').default;
 
 function AddReview(props) {
   const [formData, setFormData] = useState({['product_id']:props.productId});
-  const[showModal, setShowModal] = useState(null)
+  const[showModal, setShowModal] = useState(null);
   const closeModal = () => setShowModal(null);
   const openModal = () => setShowModal(true);
 
@@ -71,8 +71,6 @@ function AddReview(props) {
       .catch(err => console.log('err'));
   }
 
-  console.log(formData);
-
   return (
     <form>
       <div className="row">
@@ -87,12 +85,12 @@ function AddReview(props) {
       </div>
       <div className="row">
         <div className="col">
-            <Characteristics catagoryId = {'Size'} onChange={handleChangeCharacteristics}/>
-            <Characteristics catagoryId = {'Width'} onChange={handleChangeCharacteristics}/>
-            <Characteristics catagoryId = {'Comfort'} onChange={handleChangeCharacteristics}/>
-            <Characteristics catagoryId = {'Quality'} onChange={handleChangeCharacteristics}/>
-            <Characteristics catagoryId = {'Length'} onChange={handleChangeCharacteristics}/>
-            <Characteristics catagoryId = {'Fit'} onChange={handleChangeCharacteristics}/>
+            <Characteristics productId = {props.productId} catagoryId = {'Size'} onChange={handleChangeCharacteristics}/>
+            <Characteristics productId = {props.productId} catagoryId = {'Width'} onChange={handleChangeCharacteristics}/>
+            <Characteristics productId = {props.productId} catagoryId = {'Comfort'} onChange={handleChangeCharacteristics}/>
+            <Characteristics productId = {props.productId} catagoryId = {'Quality'} onChange={handleChangeCharacteristics}/>
+            <Characteristics productId = {props.productId} catagoryId = {'Length'} onChange={handleChangeCharacteristics}/>
+            <Characteristics productId = {props.productId} catagoryId = {'Fit'} onChange={handleChangeCharacteristics}/>
             <h6>characteristics</h6>
         </div>
       </div>

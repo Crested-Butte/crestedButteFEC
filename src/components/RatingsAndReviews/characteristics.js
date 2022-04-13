@@ -1,12 +1,32 @@
 import React, {useState,useEffect} from 'react';
+const axios = require('axios').default;
 
 function Characteristics(props){
   const[selectbtn, setSelectbtn] = useState();
+  const[charId, setCharId] = useState(null);
 
   const handlebuttonChange = (e) => {
     setSelectbtn(e.target.value)
     props.onChange(e, props.catagoryId);
   }
+
+  const getCharsData = () => {
+    axios({
+      method: 'get',
+      url: '/reviews/meta',
+      params: {
+        product_id: props.productId
+      }
+    })
+      .then (res => {
+        console.log('inside add review',res.data.characteristics)
+        return res.data.characteristics})
+      .then (data =>
+        {setCharId(data)})
+      .catch(err => console.log(err));
+  }
+
+  useEffect(() => {getCharsData()},[])
 
   return (
     <div>

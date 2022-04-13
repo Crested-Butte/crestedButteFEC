@@ -8,8 +8,6 @@
   let roundedDec = 0;
   let starArr = [0,0,0,0,0];
 
-  console.log('inside star rating', rating)
-
   if (fraction >= 0 && fraction < 12.5) {
     roundedDec = 0;
   } else if (fraction >= 12.5 && fraction < 0.375) {
