@@ -4,14 +4,16 @@ import SmallButton from '../sharedComponents/smallButton.js';
 import YesNoRadioButton from '../sharedComponents/yesNoRadioButton.js';
 import Characteristics from './characteristics.js';
 import UploadPhoto from '../sharedComponents/uploadPhoto.js';
+import RateStarUser from './RateStarUser.js';
 const axios = require('axios').default;
 
 function AddReview(props) {
   const [formData, setFormData] = useState({['product_id']:props.productId});
   const[showModal, setShowModal] = useState(null);
-  const[charsId, setCharsId] = useState(null);
   const closeModal = () => setShowModal(null);
   const openModal = () => setShowModal(true);
+
+  let charsId = props.charsId;
 
   const handleChangeText = (e) => {
     e.persist();
@@ -63,23 +65,7 @@ function AddReview(props) {
     })
   }
 
-  const getCharsData = () => {
-    axios({
-      method: 'get',
-      url: '/reviews/meta',
-      params: {
-        product_id: props.productId
-      }
-    })
-      .then (res => {
-        console.log('inside add review',res.data.characteristics)
-        return res.data.characteristics})
-      .then (data =>
-        {setCharsId(data)})
-      .catch(err => console.log(err));
-  }
 
-  useEffect(() => {getCharsData()},[])
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -98,7 +84,6 @@ function AddReview(props) {
       .catch(err => console.log('err'));
   }
 
-  console.log(formData)
   return (
     <form>
       <div className="row">
@@ -137,7 +122,7 @@ function AddReview(props) {
       </div>
       <div className="row">
         <div className="col">
-          <h6>Star Ratings go here!</h6>
+          <RateStarUser/>
         </div>
         <div className="col">
         <YesNoRadioButton onChange = {handleChangeBoolean}/>

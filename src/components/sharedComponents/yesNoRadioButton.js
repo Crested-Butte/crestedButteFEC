@@ -8,8 +8,6 @@ function YesNoRadioButton(props){
     props.onChange(e);
   }
 
-  console.log(selectbtn)
-
   return (
     <div>
       <label>Reccomend</label>

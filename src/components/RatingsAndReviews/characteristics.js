@@ -5,7 +5,6 @@ function Characteristics(props){
   const[selectbtn, setSelectbtn] = useState();
 
   let {name, id} = props;
-  console.log(id)
 
   const handlebuttonChange = (e) => {
     setSelectbtn(e.target.value)

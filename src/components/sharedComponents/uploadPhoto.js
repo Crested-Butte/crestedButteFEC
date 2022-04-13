@@ -17,8 +17,6 @@ function UploadPhoto(props) {
     }, [photos]
   )
 
-  console.log(photos)
-
 
   return (
     <div>

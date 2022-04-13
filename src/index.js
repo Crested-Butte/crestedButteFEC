@@ -69,7 +69,7 @@ const App = function () {
   }
 
   return (
-    <div onClick = {console.log('clicked')}>
+    <div>
       <div className="header">
         <div className="logo">
           <img src="./data/logo.png"></img>

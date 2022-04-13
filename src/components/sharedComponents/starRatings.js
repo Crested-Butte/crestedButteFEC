@@ -28,18 +28,13 @@
     }
   }
 
-
-
-
-
-
   return (
     <div>
-      {starArr.map((item, i) => {
+      {starArr.map((star, idx) => {
           return (
-              <div className="star-container" key={i}>
-                  <div className="star-fill" style={{"width" : `${parseInt(item*31)}px`}}>
-                      <img className="star" src="./data/star.png" alt="stars alt"></img>
+              <div className="star-container" key={idx}>
+                  <div className="star-fill" style={{"width" : `${parseInt(star*30)}px`}}>
+                      <img className="star" src="./data/star.png"></img>
                   </div>
               </div>
           );
