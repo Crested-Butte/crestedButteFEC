@@ -1,0 +1,129 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App snapshot renders 1`] = `
+<div>
+  <div
+    className="header"
+  >
+    <div
+      className="logo"
+    >
+      <img
+        src="./data/logo.png"
+      />
+    </div>
+    <div
+      className="title"
+    >
+      <h1>
+        CRESTED BUTTE
+      </h1>
+    </div>
+    <div
+      className="shopping-cart"
+    >
+      <i
+        className="fas fa-shopping-cart"
+      />
+      <div
+        className="display"
+      >
+         
+      </div>
+    </div>
+    <div
+      className="clear"
+    />
+  </div>
+  <div
+    className="sub-header header"
+  >
+    <div
+      className="logo"
+    >
+      <img
+        src="./data/darkLogo.png"
+      />
+    </div>
+    <div
+      className="title"
+    >
+      <h1>
+        CRESTED BUTTE
+      </h1>
+    </div>
+    <div
+      className="shopping-cart"
+    >
+      <i
+        className="fas fa-shopping-cart"
+      />
+      <div
+        className="display"
+      >
+         
+      </div>
+    </div>
+    <div
+      className="clear"
+    />
+  </div>
+  <div
+    className="product-details"
+  >
+    <div>
+      loading
+    </div>
+  </div>
+  <div
+    className="related-items"
+  >
+    <div>
+      loading
+    </div>
+  </div>
+  <div
+    className="questions-answers"
+  >
+    <div>
+      loading
+    </div>
+  </div>
+  <div
+    className="ratings-reviews"
+  >
+    <div>
+      loading
+    </div>
+  </div>
+  <button
+    className="to-top display"
+    onClick={[Function]}
+  >
+    <i
+      className="fas fa-arrow-up"
+    />
+  </button>
+  <div
+    className="footer"
+  >
+    <span
+      className="terms"
+    >
+      Terms of Service
+    </span>
+     
+    <span
+      className="privacy"
+    >
+       Privacy Policy
+    </span>
+     
+    <span
+      className="copyright"
+    >
+      © 2022 Crested Butte, Inc.
+    </span>
+  </div>
+</div>
+`;
