@@ -1,7 +1,10 @@
 import React, {useState,useEffect} from 'react';
+const axios = require('axios').default;
 
 function Characteristics(props){
   const[selectbtn, setSelectbtn] = useState();
+
+  let {name, id} = props;
 
   const handlebuttonChange = (e) => {
     setSelectbtn(e.target.value)
@@ -10,7 +13,7 @@ function Characteristics(props){
 
   return (
     <div>
-      <label>{props.catagoryName}</label>
+      <label>{name}</label>
       <div className="form-check form-check-inline">
         <input
           className="form-check-input"

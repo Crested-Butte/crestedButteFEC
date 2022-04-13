@@ -14,7 +14,6 @@ function ProductBreakDown(props) {
       }
     })
       .then (res => {
-        console.log(res.data.characteristics)
         return res.data.characteristics})
       .then (data =>
         {setReviewData(data)})

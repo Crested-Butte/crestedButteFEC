@@ -8,7 +8,8 @@ const axios = require('axios').default;
 
 function AddReview(props) {
   const [formData, setFormData] = useState({['product_id']:props.productId});
-  const[showModal, setShowModal] = useState(null)
+  const[showModal, setShowModal] = useState(null);
+  const[charsId, setCharsId] = useState(null);
   const closeModal = () => setShowModal(null);
   const openModal = () => setShowModal(true);
 
@@ -60,6 +61,24 @@ function AddReview(props) {
     })
   }
 
+  const getCharsData = () => {
+    axios({
+      method: 'get',
+      url: '/reviews/meta',
+      params: {
+        product_id: props.productId
+      }
+    })
+      .then (res => {
+        console.log('inside add review',res.data.characteristics)
+        return res.data.characteristics})
+      .then (data =>
+        {setCharsId(data)})
+      .catch(err => console.log(err));
+  }
+
+  useEffect(() => {getCharsData()},[])
+
   const handleSubmit = (e) => {
     e.preventDefault();
     axios({
@@ -70,8 +89,6 @@ function AddReview(props) {
       .then(res => console.log('success!', res))
       .catch(err => console.log('err'));
   }
-
-  console.log(formData);
 
   return (
     <form>
@@ -87,12 +104,12 @@ function AddReview(props) {
       </div>
       <div className="row">
         <div className="col">
-            <Characteristics catagoryId = {'Size'} onChange={handleChangeCharacteristics}/>
-            <Characteristics catagoryId = {'Width'} onChange={handleChangeCharacteristics}/>
-            <Characteristics catagoryId = {'Comfort'} onChange={handleChangeCharacteristics}/>
-            <Characteristics catagoryId = {'Quality'} onChange={handleChangeCharacteristics}/>
-            <Characteristics catagoryId = {'Length'} onChange={handleChangeCharacteristics}/>
-            <Characteristics catagoryId = {'Fit'} onChange={handleChangeCharacteristics}/>
+           {charsId ? Object.keys(charsId).map((characteristicName) => {
+               return <Characteristics
+                 key = {characteristicName}
+                 name = {characteristicName}
+                 id = {charsId[characteristicName].id}/>
+             }) : null }
             <h6>characteristics</h6>
         </div>
       </div>

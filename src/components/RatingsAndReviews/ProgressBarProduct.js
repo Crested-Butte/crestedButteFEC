@@ -7,7 +7,7 @@ function ProgressBarProduct(props) {
   let key = Object.keys(data)[0];
   let val = Object.values(data)[0]
 
-  console.log(val)
+
 
   const containerStyles = {
     height: 10,
