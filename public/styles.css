@@ -8,7 +8,9 @@ html {
   scroll-behavior: smooth;
 }
 
-
+.row {
+  --bs-gutter-x: 0;
+}
 .clear {
   clear: both;
 }
@@ -697,7 +699,6 @@ html {
 
 .questions-answers {
   padding-bottom: 60px;
-  border-bottom: 1px solid black;
 }
 
 .q-and-a-header {
@@ -1057,6 +1058,7 @@ html {
 .flex-down-container {
   display: flex;
   flex-direction: column;
+  padding:0;
 }
 
 .ratings h6 {
@@ -1090,4 +1092,118 @@ html {
   height: 36px;
   width: 31px;
   display: inline-block;
+}
+
+.ratings-left, .ratings-right{
+  padding:40px;
+}
+
+.ratings-left{
+  background-color: var(--primary-color);
+}
+
+.ratings-right{
+  background-color:#efe4d6;
+}
+
+.ratings-left h1{
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 36px;
+  padding: 5px 0;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.ratings-breakdown{
+  margin:20px 0;
+}
+.ratings-left .flex-right-container{
+  justify-content: center;
+}
+
+.ratings-breakdown, .product-breakdown{
+  background: #efe4d6;
+  padding: 20px;
+  box-shadow: 6px 6px 6px rgb(0 0 0 / 30%);
+  border-radius: 3px;
+}
+
+.rating-score{
+  font-size:46px;
+  padding:20px;
+  font-weight:bold;
+  border:5px solid var(--secondary-color);
+  border-radius:100px;
+}
+
+.ratings-breakdown .ratings{
+  padding:5px 0;
+}
+
+.progress-bar-container{
+  padding:5px 0;
+}
+
+.progress-bar-title{
+font-size:20px;
+font-weight:bold;
+padding-bottom:5px;
+}
+
+.progress-bar-container p{
+padding:0;
+margin:0;
+font-size:16px;
+opacity: 0.7;
+}
+
+.reviews-container{
+  background:white;
+  padding:30px;
+  box-shadow: 6px 6px 6px rgb(0 0 0 / 10%);
+  border-radius: 3px;
+}
+
+.reviews-container .sort{
+  border-bottom:2px solid var(--secondary-color);
+  padding-bottom:15px;
+  position: relative;
+}
+
+.reviews-container .sort label{
+  font-weight:bold;
+  font-size:18px;
+
+}
+
+.reviews-container .sort select {
+  min-width:200px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  display: inline-block;
+  background: transparent;
+  border-radius: 5px;
+  padding:2px 10px;
+  margin-left:10px;
+}
+
+.reviews-container .sort label:after {
+  font-family: 'FontAwesome';
+  content: "\f107";
+  font-size: 20px;
+  line-height: 33px;
+  position: absolute;
+  display: inline-block;
+  background: var(--primary-color);
+  color: var(--secondary-color);
+  z-index: 0;
+  height: 33px;
+  width: 33px;
+  text-align: center;
+  z-index: 0;
+  border-radius: 0 5px 5px 0;
 }

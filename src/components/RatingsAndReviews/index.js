@@ -12,11 +12,11 @@ const RatingsAndReviews = (props) => {
 
   return (
     <div className="row">
-      <div className="col-4 flex-down-container ">
+      <div className="col-4 flex-down-container ratings-left">
         <RatingBreakDown productId = {props.product.id}/>
         <ProductBreakDown productId = {props.product.id}/>
       </div>
-      <div className="col-8 flex-down-container ">
+      <div className="col-8 flex-down-container ratings-right">
         <ReviewList productId = {props.product.id}/>
         <br></br>
         {!showModal && <button onClick = {openModal}>Write a Review</button>}

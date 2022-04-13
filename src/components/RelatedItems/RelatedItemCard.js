@@ -38,7 +38,7 @@ const RelatedItemCard = (props) => {
       getData(props.id)
       getImage(props.id)
     }
-  }, [])
+  }, [props.id])
 
   function onMouseEnter(e) {
     $(".item" + e.target.name).addClass("hover");

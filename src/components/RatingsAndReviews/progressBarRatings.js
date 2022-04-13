@@ -8,15 +8,13 @@ function ProgressBarRatings(props) {
     height: 10,
     width: '100%',
     backgroundColor: 'grey',
-    borderRadius: 50,
     margin: 5
   }
 
   const fillerStyles = {
     height: '100%',
     width: `${ratings/sumData*100}%`,
-    backgroundColor: 'green',
-    borderRadius: 'inherit',
+    backgroundColor: '#fdb52d',
     textAlign: 'right'
   }
 
