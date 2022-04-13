@@ -22,8 +22,7 @@ const ProductDetails = (props) => {
         price: 0,
         imageUrl: ""
     })
-    console.log(product)
-    console.log(cart)
+
     const getStyles = (str) => {
         str = str || props.productId
         return axios.get(`/products/${str}/styles`)
@@ -59,7 +58,6 @@ const ProductDetails = (props) => {
         }
     }, [props.productId])
 
-    console.log(styles)
     const handleClick = (id) => {
         const selectedStyle = [];
         styles.map(item => {
@@ -71,7 +69,6 @@ const ProductDetails = (props) => {
         setProductInfo(selectedStyle[0]);
 
     }
-    console.log(productInfo)
     const renderStyles = (styles) => {
         if (!styles) {
             return <div>loading...</div>

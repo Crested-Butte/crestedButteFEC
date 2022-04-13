@@ -39,7 +39,7 @@ const App = function () {
   }
 
   useEffect(() => {
-    document.addEventListener('mousedown',ClickTracker);
+    //document.addEventListener('mousedown',ClickTracker);
     if (!product) {
       getProduct()
     };
@@ -124,3 +124,5 @@ const App = function () {
 }
 
 reactDom.render(<App />, document.getElementById("root"))
+
+export default App;
