@@ -27,23 +27,22 @@ function AddQuestionModal(props) {
       height: '100%', /* Full height */
       overflow: 'auto', /* Enable scroll if needed */
       backgroundColor: 'rgb(0,0,0)', /* Fallback color */
-      backgroundColor: 'rgba(0,0,0,0.4)' /* Black w/ opacity */
-    },
-    modalContent: {
-      backgroundColor: '#fefefe',
-      margin: 'auto',
-      padding: '20px',
-      border: '1px solid #888',
-      width: '80%'
+      backgroundColor: 'rgba(0,0,0,0.8)' /* Black w/ opacity */
     }
   }
   return (
     <div>
+      <div className="add-a-question">
       <button onClick={handleShow}>Add a Question</button>
+      </div>
       <div id="AddQuestionModal" style={styles.modal}>
-        <div style={styles.modalContent}>
-          <button onClick={handleClose}>Close Modal</button>
+        <div className="question-modal">
+        <div className="question-modal-header">
+          <button onClick={handleClose}>X</button>
+          </div>
+          <div className="question-modal-body">
           <AddQuestion cb={handleClose} id={id} name={productName}/>
+          </div>
         </div>
 
         </div>

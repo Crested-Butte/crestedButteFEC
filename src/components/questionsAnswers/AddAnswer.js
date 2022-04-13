@@ -50,7 +50,7 @@ const AddAnswer = (props) => {
       <form>
         <div>
           <label>
-          answer:
+          Answer
           <div>
             <input className="create-input" id="body" type="text" onChange={handleChange} placeholder="type answer"></input>
           </div>
@@ -58,7 +58,7 @@ const AddAnswer = (props) => {
         </div>
         <div>
           <label>
-          nickname
+          Nickname
           <div>
             <input className="create-input" id="name" type="text" onChange={handleChange} placeholder="type nickname"></input>
           </div>
@@ -66,13 +66,13 @@ const AddAnswer = (props) => {
         </div>
         <div>
           <label>
-          email
+          Email
           <div>
             <input className="create-input" id="email" type="text" onChange={handleChange} placeholder="type email"></input>
           </div>
         </label>
         </div>
-          <div>
+          <div className="submit-add-answer">
             <button className="addQuestionSubmit" onClick={handleSubmit} type="submit">Add Answer</button>
           </div>
 

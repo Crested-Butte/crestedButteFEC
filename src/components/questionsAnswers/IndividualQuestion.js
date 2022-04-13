@@ -22,11 +22,11 @@ const IndividualQuestion = (props) => {
   }
   //console.log(props.question)
   return (
-    <div>
-      <div className="row">
-        <div className="col-5"><h4>Q: {body} </h4></div>
-        <div className="col-7">
-          <span>Helpful? <b  onClick={() => increaseHelpful(qId)} >yes</b> {helpful} found helpful</span>
+    <div className="question">
+      <div className="row question-title">
+        <div className="col-8"><h5>Q: {body} </h5></div>
+        <div className="col-4 vote">
+          <span><b>Helpful?</b> <span className="yes" onClick={() => increaseHelpful(qId)} >yes</span> ({helpful})</span>
         </div>
       </div>
         <AnswerList answers={props.question.answers}/>

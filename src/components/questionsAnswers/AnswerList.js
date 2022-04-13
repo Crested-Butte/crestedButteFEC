@@ -12,10 +12,12 @@ const AnswerList = (props) => {
     })
   }
   return (
-    <div>
+    <div className="answer">
       <h5>A:</h5>
       {answersArr.length === 0 ? <h5>No Answers Yet</h5> : renderAnswers(answersArr)}
+      <div className="load-answers">
       <button onClick={() => setNumberOfAnswers(numberOfAnswers + 2)}>Load more Answers</button>
+      </div>
     </div>
   )
 }

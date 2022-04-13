@@ -11,13 +11,13 @@ const QuestionsList = (props) => {
   const [numberOfQuestions, setNumberOfQuestions] = useState(2)
   //const [questionsInSearch, setQuestionsInSearch] = useState()
   const [searchStr, setSearchStr] = useState('')
-  function loadQuestions () {
+  function loadQuestions() {
     axios({
       url: '/qa/questions',
       params: {
         product_id: props.productId
       }
-    }).then( (response) => {
+    }).then((response) => {
       setProductId(props.productId)
       setQuestions(response.data.results)
     })
@@ -44,7 +44,7 @@ const QuestionsList = (props) => {
       return <h3>No Questions yet</h3>
     } else {
       return questionsToRender.map((question) => {
-        return <IndividualQuestion name={props.productName} key={question.question_id} question={question}/>
+        return <IndividualQuestion name={props.productName} key={question.question_id} question={question} />
       })
     }
   }
@@ -56,28 +56,33 @@ const QuestionsList = (props) => {
   return (
 
     <div>
-    {questions ?
-      <div className="container">
-        <div className="row">
-          <div className="col-12"> <h4>Questions about {props.productName}</h4></div>
-        </div>
-        <div className="row">
-          <div className="col-6">
-            <Search cb={setStringToSearch}/>
-          </div>
-          <div className="col-6">
-              {numberOfQuestions < questions.length ? <button onClick={() => setNumberOfQuestions(numberOfQuestions + 2)}>Load more questions</button> : null}
+      {questions ?
+        <div className="qa-container">
+          <div className="q-and-a-header">
+            <div className="header-container">
+              <h1>Questions</h1>
+              <h6>About</h6>
+              <h5>{props.productName}</h5>
             </div>
-        </div>
-        <div>
-          <div className="row">
-
-            {questions ? renderQuestions(questions) : <div>loading</div>}
           </div>
+          <div className="q-a-list">
+            <div className="search">
+              <div className="search-bar">
+                <Search cb={setStringToSearch} />
+              </div>
+              <div className="load-questions">
+                {numberOfQuestions < questions.length ? <button onClick={() => setNumberOfQuestions(numberOfQuestions + 2)}>Load more questions</button> : null}
+              </div>
+            </div>
+            <div>
+              <div className="questions">
+                {questions ? renderQuestions(questions) : <div>loading</div>}
+              </div>
+            </div>
           </div>
         </div> :
         null}
-      </div>
+    </div>
 
   )
 }

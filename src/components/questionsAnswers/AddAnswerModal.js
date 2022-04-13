@@ -19,23 +19,22 @@ function AddAnswerModal(props) {
       height: '100%', /* Full height */
       overflow: 'auto', /* Enable scroll if needed */
       backgroundColor: 'rgb(0,0,0)', /* Fallback color */
-      backgroundColor: 'rgba(0,0,0,0.4)' /* Black w/ opacity */
-    },
-    modalContent: {
-      backgroundColor: '#fefefe',
-      margin: 'auto',
-      padding: '20px',
-      border: '1px solid #888',
-      width: '80%'
+      backgroundColor: 'rgba(0,0,0,0.8)' /* Black w/ opacity */
     }
   }
   return (
     <div>
+      <div className="add-answer">
       <button onClick={handleShow}>Add an Answer</button>
+      </div>
       <div id="AddAnswerModal" style={styles.modal}>
-        <div style={styles.modalContent}>
-          <button onClick={handleClose}>Close Modal</button>
+        <div className="answer-modal">
+         <div className="answer-modal-header">
+         <button onClick={handleClose}>X</button>
+         </div>
+         <div className="answer-modal-body">
         <AddAnswer name={productName} cb={handleClose} id={props.id} question={questionBody}/>
+        </div>
         </div>
 
         </div>
