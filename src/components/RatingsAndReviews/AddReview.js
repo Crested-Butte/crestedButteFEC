@@ -71,7 +71,7 @@ function AddReview(props) {
     e.preventDefault();
     axios.post('/reviews',{
       "product_id": formData.product_id,
-      "rating": 5,
+      "rating": formData.ratings,
       "summary": formData.summary,
       "body": formData.body,
       "recommend": formData.recommend,
@@ -83,6 +83,8 @@ function AddReview(props) {
       .then(res => console.log('success!', res))
       .catch(err => console.log('err'));
   }
+
+  console.log(formData);
 
   return (
     <form>
@@ -122,7 +124,7 @@ function AddReview(props) {
       </div>
       <div className="row">
         <div className="col">
-          <RateStarUser/>
+          <RateStarUser onChange = {handleChangeGeneral}/>
         </div>
         <div className="col">
         <YesNoRadioButton onChange = {handleChangeBoolean}/>
