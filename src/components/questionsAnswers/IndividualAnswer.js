@@ -35,7 +35,9 @@ const IndividualAnswer = (props) => {
   }
   return (
     <div>
-      <p><b>{props.answer.body}</b><span> by {answer.answerer_name}, at {getDate(date)}</span><span> Answer helpful? <span onClick={() => increaseHelpful(answerId)}>Yes: {helpful} found helpful</span></span></p>
+      <p className="answer-body"><b>{props.answer.body}</b></p>
+
+      <p className="answerer"><span> by {answer.answerer_name}, at {getDate(date)}</span><span> | <b>  Answer helpful? </b> | <span onClick={() => increaseHelpful(answerId)}><span className="answer-yes">Yes</span>({helpful})</span></span></p>
 
     </div>
   )

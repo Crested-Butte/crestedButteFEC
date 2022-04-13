@@ -19,7 +19,7 @@ const Search = (props) => {
   // }
   return (
     <div>
-      <h5> -search for questions and answers</h5>
+      <h5> Search for questions and answers</h5>
       <form>
           <input className="create-input" id="title" type="text" onChange={handleChange} placeholder="Have a question? Search for answers…"></input>
           <div>

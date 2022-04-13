@@ -48,23 +48,23 @@ const AddQuestion = (props) => {
       <form>
         <div>
           <label>
-          question
+          Question
           <input className="create-input" id="body" type="text" onChange={handleChange} placeholder="type question"></input>
         </label>
         </div>
         <div>
           <label>
-          nickname
+          Nickname
           <input className="create-input" id="name" type="text" onChange={handleChange} placeholder="type nickname"></input>
         </label>
         </div>
         <div>
           <label>
-          email
+          Email
           <input className="create-input" id="email" type="text" onChange={handleChange} placeholder="type email"></input>
         </label>
         </div>
-          <div>
+          <div className="submit-add-question">
             <button className="addQuestionSubmit" onClick={handleSubmit} type="submit">Add Question</button>
           </div>
 

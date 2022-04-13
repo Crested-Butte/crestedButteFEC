@@ -45,22 +45,24 @@ const RelatedItemCard = (props) => {
   }
 
   function onMouseLeave(e) {
-    $(".item" + e.target.name).removeClass("hover");
+    $(".item-info").removeClass("hover");
   }
 
 
 
   function renderData() {
     return (
-      <div className="item" >
+      <div className="item" onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} >
         <div className="item-image">
-          <img onClick={() => { props.cb(id); $('.style-selector img').removeClass('selected'); $('.style-selector .image0').addClass('selected'); }} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} name={props.value} src={images}></img>
-        </div>
-        <div className={"item-info item" + props.value}>
+        <div className={"item-info item" + props.value} >
           <h6>{data.category}</h6>
           <h5>{data.name}</h5>
           <h6>${data.default_price}</h6>
         </div>
+          <img onClick={() => { props.cb(id); $('.style-selector img').removeClass('selected'); $('.style-selector .image0').addClass('selected'); }}  name={props.value} src={images}></img>
+
+        </div>
+
       </div>
     )
   }
