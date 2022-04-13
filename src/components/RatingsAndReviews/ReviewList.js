@@ -58,7 +58,7 @@ function ReviewList(props) {
         <label>
         Sort
           <select defaultValue ="relevant" onChange={handleChange}>
-            <option value="relevant">relavent</option>
+            <option value="relevant">relevant</option>
             <option value="newest">newest</option>
             <option value="helpful">helpful</option>
           </select>
