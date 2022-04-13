@@ -57,7 +57,9 @@ function AddReview(props) {
     let targetValue = e.target.value;
     setFormData({
       ...formData,
-      ['characteristics']:{[name]:parseInt(targetValue)}
+        characteristics:{
+          ...formData.characteristics,
+          [name]:parseInt(targetValue)}
     })
   }
 
@@ -81,15 +83,22 @@ function AddReview(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios({
-      method: 'post',
-      url: '/reviews',
-      data: formData
+    axios.post('/reviews',{
+      "product_id": formData.product_id,
+      "rating": 5,
+      "summary": formData.summary,
+      "body": formData.body,
+      "recommend": formData.recommend,
+      "name": formData.name,
+      "email": formData.email,
+      "photos": formData.photos,
+      "characteristics": formData.characteristics
     })
       .then(res => console.log('success!', res))
       .catch(err => console.log('err'));
   }
 
+  console.log(formData)
   return (
     <form>
       <div className="row">
@@ -108,7 +117,8 @@ function AddReview(props) {
                return <Characteristics
                  key = {characteristicName}
                  name = {characteristicName}
-                 id = {charsId[characteristicName].id}/>
+                 id = {charsId[characteristicName].id}
+                 onChange = {handleChangeCharacteristics}/>
              }) : null }
             <h6>characteristics</h6>
         </div>
@@ -150,14 +160,3 @@ function AddReview(props) {
 
 export default AddReview;
 
-
-/* To do
--> limit body chars [50,1000] if lower than 50 then submission will fail
--> A review summary of up to 60 chars     -- complete
--> generate a 5 star selectable icon
--> radio button consisting of "Yes" and "No" for would or would not reccomend'
--> characteristics? 5 radio buttons
--> upload photos. Photos will render as thumbnial images
--> nickname "maximum 60 chars"
--> submit review buttonjjj
-*/
