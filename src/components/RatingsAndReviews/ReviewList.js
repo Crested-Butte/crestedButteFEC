@@ -53,8 +53,8 @@ function ReviewList(props) {
 
 
   return (
-    <div className = "flex-down-container ">
-      <div style={{textAlign: "center"}}>
+    <div className = "flex-down-container reviews-container">
+      <div className="sort">
         <label>
         Sort
           <select defaultValue ="relevant" onChange={handleChange}>

@@ -24,13 +24,7 @@ function ProductBreakDown(props) {
 
   return (
 
-    <div className = "flex-down-container">
-      <div>
-        <h6>Another TEST!</h6>
-      </div>
-      <div>
-        PlaceHolder
-      </div>
+    <div className = "flex-down-container product-breakdown">
       <div>
         {reviewData ?
           Object.keys(reviewData).map((key) => {

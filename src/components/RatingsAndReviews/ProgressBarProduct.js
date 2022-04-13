@@ -13,8 +13,7 @@ function ProgressBarProduct(props) {
     height: 10,
     width: '100%',
     backgroundColor: 'grey',
-    borderRadius: 50,
-    margin: 5
+    marginBottom:'2px'
   }
 
   const fillerStyles = {
@@ -25,7 +24,7 @@ function ProgressBarProduct(props) {
     textAlign: 'right',
     borderStyle: 'solid',
     borderWidth: '10px 10px 20px 10px',
-    borderColor: 'green transparent transparent transparent'
+    borderColor: '#fdb52d transparent transparent transparent'
   }
 
   let lowHigh = {
@@ -40,8 +39,8 @@ function ProgressBarProduct(props) {
 
 
   return (
-    <React.Fragment>
-      <div>
+    <div className="progress-bar-container">
+      <div className="progress-bar-title">
         {key}
       </div>
         <div className = "flex-right-container ratings">
@@ -51,13 +50,13 @@ function ProgressBarProduct(props) {
     </div>
     <div className = "row">
       <div className = 'col-6'>
-        {`${lowHigh[key][0]}`}
+        <p>{`${lowHigh[key][0]}`}</p>
       </div>
       <div className = 'col-6' style ={{textAlign: 'right'}}>
-      {`${lowHigh[key][0]}`}
+     <p>{`${lowHigh[key][0]}`}</p>
       </div>
     </div>
-    </React.Fragment>
+    </div>
 
   );
 }
