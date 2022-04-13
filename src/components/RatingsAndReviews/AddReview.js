@@ -57,7 +57,9 @@ function AddReview(props) {
     let targetValue = e.target.value;
     setFormData({
       ...formData,
-      ['characteristics']:{[name]:parseInt(targetValue)}
+        characteristics:{
+          ...formData.characteristics,
+          [name]:parseInt(targetValue)}
     })
   }
 
@@ -90,6 +92,7 @@ function AddReview(props) {
       .catch(err => console.log('err'));
   }
 
+  console.log(formData)
   return (
     <form>
       <div className="row">
@@ -108,7 +111,8 @@ function AddReview(props) {
                return <Characteristics
                  key = {characteristicName}
                  name = {characteristicName}
-                 id = {charsId[characteristicName].id}/>
+                 id = {charsId[characteristicName].id}
+                 onChange = {handleChangeCharacteristics}/>
              }) : null }
             <h6>characteristics</h6>
         </div>

@@ -5,10 +5,11 @@ function Characteristics(props){
   const[selectbtn, setSelectbtn] = useState();
 
   let {name, id} = props;
+  console.log(id)
 
   const handlebuttonChange = (e) => {
     setSelectbtn(e.target.value)
-    props.onChange(e, props.catagoryId);
+    props.onChange(e, `${id}`);
   }
 
   return (
@@ -18,7 +19,7 @@ function Characteristics(props){
         <input
           className="form-check-input"
           type="radio"
-          id="characteristics[size]"
+          id="characteristics"
           value="1"
           onChange = {handlebuttonChange}
           checked = {selectbtn === '1'}
@@ -44,7 +45,7 @@ function Characteristics(props){
         <input
           className="form-check-input"
           type="radio"
-          id="characteristics[size]"
+          id="characteristics"
           value="3"
           onChange = {handlebuttonChange}
           checked = {selectbtn === '3'}
@@ -57,7 +58,7 @@ function Characteristics(props){
         <input
           className="form-check-input"
           type="radio"
-          id="characteristics[size]"
+          id="characteristics"
           value="4"
           onChange = {handlebuttonChange}
           checked = {selectbtn === '4'}
@@ -70,7 +71,7 @@ function Characteristics(props){
         <input
           className="form-check-input"
           type="radio"
-          id="characteristics[size]"
+          id="characteristics"
           value="5"
           onChange = {handlebuttonChange}
           checked = {selectbtn === '5'}
