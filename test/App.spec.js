@@ -9,8 +9,6 @@ import App from '../src/App.js'
 import ReactDOM from "react-dom";
 
 
-
-
 describe('App', () => {
   test('snapshot renders', () => {
     const component = renderer.create(<App
