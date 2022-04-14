@@ -16,22 +16,22 @@ function ReviewTile(props) {
 
 
   return (
-    <div>
+    <div className="list-item">
       <div className = "row">
         <div className = "col">
           <Stars rating = {review.rating}/>
         </div>
-        <div className = "col">
+        <div className = "col user-and-date">
           {getUserandDate(review)}
         </div>
       </div>
-      <div className = "row">
+      <div className = "row review-summary">
         <strong>{review.summary}</strong>
       </div>
-      <div className = "row">
+      <div className = "row review-body">
         {review.body}
       </div>
-      <div className = "row">
+      <div className = "row review-reccomend">
         {review.recommend ? reccomendReview() : null}
       </div>
     </div>

@@ -13,6 +13,7 @@ const ProductDetails = (props) => {
     const [productInfo, setProductInfo] = useState();
     const [favoriteStyles, setFavoriteStyles] = useState([]);
     const [product, setProduct] = useState(props.product);
+    const [productId, setProductId] = useState(props.productId)
     const [styleName, setStyleName] = useState();
     const [cart, setCart] = useState({
         productName: product.name,
@@ -22,8 +23,7 @@ const ProductDetails = (props) => {
         price: 0,
         imageUrl: ""
     })
-    console.log(product)
-    console.log(cart)
+
     const getStyles = (str) => {
         str = str || props.productId
         return axios.get(`/products/${str}/styles`)
@@ -47,7 +47,7 @@ const ProductDetails = (props) => {
     useEffect(() => {
         getStyles();
         if (product !== props.product) {
-            setProduct(props.product)
+            setProduct(props.product);
             setCart({
                 productName: props.product.name,
                 styles: "",
@@ -57,9 +57,11 @@ const ProductDetails = (props) => {
                 imageUrl: ""
             })
         }
+        if (productId !== props.productId) {
+            setProductId(props.productId)
+        }
     }, [props.productId])
 
-    console.log(styles)
     const handleClick = (id) => {
         const selectedStyle = [];
         styles.map(item => {
@@ -71,7 +73,7 @@ const ProductDetails = (props) => {
         setProductInfo(selectedStyle[0]);
 
     }
-    console.log(productInfo)
+
     const renderStyles = (styles) => {
         if (!styles) {
             return <div>loading...</div>
@@ -121,7 +123,7 @@ const ProductDetails = (props) => {
                 </div>
                 <div className="products col-5">
                     <div className="product-info">
-                        {productInfo ? <ProductInfo category={props.product.category} name={props.product.name} productInfo={productInfo} /> : <div>loading...</div>}
+                        {(productInfo && productId) ? <ProductInfo category={props.product.category} name={props.product.name} productInfo={productInfo} productId={productId} /> : <div>loading...</div>}
                     </div>
                     <div className="styles row">
                         <h6>Styles <span className="style-name">{styleName}</span></h6>

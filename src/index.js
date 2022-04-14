@@ -39,7 +39,7 @@ const App = function () {
   }
 
   useEffect(() => {
-    document.addEventListener('mousedown',ClickTracker);
+    // document.addEventListener('mousedown',ClickTracker);
     if (!product) {
       getProduct()
     };

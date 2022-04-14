@@ -9,7 +9,7 @@ const getUserandDate = function (props) {
   var dateStr = months[monthStr] + ' ' + day + ', ' +year
   var name = props.name || props.reviewer_name;
   return (
-    <p>{`${name}, ${dateStr}`}</p>
+    <p><b>{`${name}`}</b>, {`${dateStr}`}</p>
   )
 }
 
