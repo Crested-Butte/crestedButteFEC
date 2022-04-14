@@ -32,7 +32,7 @@ const StyleSelector = (props) => {
   }
 
   const render = () => {
-    return <img name={"image" + props.value} className={"image" + props.value} src={props.style.photos[0].thumbnail_url} onClick={handleStyleClick} id={props.style.style_id}></img>
+    return <img name={"image" + props.value} className={"image" + props.value} src={props.style.photos[0].thumbnail_url || "./data/no-image.png"} onClick={handleStyleClick} id={props.style.style_id}></img>
   }
 
   const renderWishlist = () => {

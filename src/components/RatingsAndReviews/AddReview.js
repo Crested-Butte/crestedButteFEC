@@ -89,17 +89,20 @@ function AddReview(props) {
   return (
     <form>
       <div className="row">
-        <div className="col">
+        <div className="col nickname">
+        <h6>Nickname</h6>
           <input className="form-control" id="name" type="text" onChange={handleChangeText} maxLength = "60" placeholder="Example: jackson11!"></input>
-          <h6>nickname</h6>
+
         </div>
-        <div className="col">
+        <div className="col email">
+          <h6>Email</h6>
           <input className="form-control" id="email" type="text" onChange={handleChangeText} maxLength = "60" placeholder="Example: pschaeff@email.com"></input>
-          <h6>For privacy reasons, do not use your full name or email address</h6>
+          <p>For privacy reasons, do not use your full name or email address</p>
         </div>
       </div>
-      <div className="row">
+      <div className="row characteristics">
         <div className="col">
+        <h6>Characteristics</h6>
            {charsId ? Object.keys(charsId).map((characteristicName) => {
                return <Characteristics
                  key = {characteristicName}
@@ -107,19 +110,21 @@ function AddReview(props) {
                  id = {charsId[characteristicName].id}
                  onChange = {handleChangeCharacteristics}/>
              }) : null }
-            <h6>characteristics</h6>
+
         </div>
       </div>
-      <div className="row">
+      <div className="row summary">
         <div className="col">
+        <h6>Summary</h6>
           <textarea className="form-control" id="summary" type="text" onChange={handleChangeText} maxLength = "60" ></textarea>
-          <h6>summary</h6>
+
         </div>
       </div>
-      <div className="row">
+      <div className="row review-body">
         <div className="col">
+        <h6>Review body</h6>
           <textarea className="form-control" id="body" type="text" onChange={handleChangeText} maxLength = "1000"></textarea>
-          <h6>review body</h6>
+
         </div>
       </div>
       <div className="row">
@@ -133,14 +138,14 @@ function AddReview(props) {
       <div className="row">
         <div className="col">
           <UploadPhoto onChange = {handleChangeGeneral}/>
-        </div>
-        <div className="col">
           <h6>Image Thumbnails</h6>
         </div>
-        <div className="col">
+
+
+      </div>
+      <div className="write-review-btn">
           <SmallButton btnName = {'submit'} onClick = {handleSubmit}/>
         </div>
-      </div>
     </form>
   )
 }

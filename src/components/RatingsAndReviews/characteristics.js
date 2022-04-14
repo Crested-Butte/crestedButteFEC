@@ -12,8 +12,8 @@ function Characteristics(props){
   }
 
   return (
-    <div>
-      <label>{name}</label>
+    <div className="char-item">
+      <label className="name-label">{name}</label>
       <div className="form-check form-check-inline">
         <input
           className="form-check-input"

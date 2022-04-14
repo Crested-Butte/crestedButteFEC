@@ -19,7 +19,9 @@ const RatingsAndReviews = (props) => {
       <div className="col-8 flex-down-container ratings-right">
         <ReviewList productId = {props.product.id}/>
         <br></br>
+        <div className="write-review-btn">
         {!showModal && <button onClick = {openModal}>Write a Review</button>}
+        </div>
         {showModal && <AddReviewModal
           showModal = {showModal}
           closeModal = {closeModal}

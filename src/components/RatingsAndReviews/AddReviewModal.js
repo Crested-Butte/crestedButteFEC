@@ -31,6 +31,9 @@ function AddReviewModal(props) {
           <div className ="modal-header">
             <h5>Write Your Review</h5>
             <h6>{`About the ${props.productName}`}</h6>
+            <div className="close-btn">
+          <button onClick={closeModal}>X</button>
+          </div>
           </div>
           <div className="modal-body">
             {charsId && <AddReview
@@ -38,10 +41,8 @@ function AddReviewModal(props) {
               charsId = {charsId}
               productId = {props.productId}/>}
           </div>
-          <div className="modal-footer">
-            <p>the modal footer will go here</p>
-          </div>
-          <button onClick={closeModal}>`[X]`</button>
+
+
         </div>
       </div>
     )

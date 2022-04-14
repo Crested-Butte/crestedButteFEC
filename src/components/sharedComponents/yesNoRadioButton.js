@@ -9,8 +9,8 @@ function YesNoRadioButton(props){
   }
 
   return (
-    <div>
-      <label>Reccomend</label>
+    <div className="rating-recommend">
+      <label className="recommend-name"><b>Recommend?</b></label>
       <div className="form-check form-check-inline">
           <input
             type="radio"

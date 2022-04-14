@@ -19,7 +19,7 @@ function UploadPhoto(props) {
 
 
   return (
-    <div>
+    <div className="upload-photo">
       <input type="file" onChange={handleChange}/>
         <div className = "flex-right-container">
           <div className = "style-selector col-2">
