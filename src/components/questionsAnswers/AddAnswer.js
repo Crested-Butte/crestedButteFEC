@@ -3,13 +3,8 @@ const axios = require('axios');
 
 const AddAnswer = (props) => {
   const [values, setValues] = useState()
-  const [id, setId] = useState(props.id)
+  const id = props.id
 
-  useEffect(() => {
-    if (props.id !== id) {
-      setId(props.id)
-    }
-  })
   const postAnswer = function (data) {
     axios({
       method: 'post',
@@ -27,21 +22,16 @@ const AddAnswer = (props) => {
       ...values,
       [key]: val
     })
-    //console.log(values)
   }
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log(values, id, typeof id)
     if (values.name && values.body && values.email) {
       postAnswer(values)
-      //var str = 'nickname: ' + values.nickname + '\n answer: ' + values.answer + '\n email: ' + values.email
-      //alert(str)
       props.cb()
     } else {
        alert('one or more values missing')
     }
-
-
   }
   return (
     <div>
