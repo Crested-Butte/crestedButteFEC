@@ -2,8 +2,6 @@ import React, { useState, useEffect } from "react";
 
 const ProductDescription = (props) => {
 
-
-
   return (
     <div className="description">
       <div className="row">

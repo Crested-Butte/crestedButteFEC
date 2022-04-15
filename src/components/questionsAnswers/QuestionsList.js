@@ -34,7 +34,6 @@ const QuestionsList = (props) => {
 
 
   const renderQuestions = (questions) => {
-    console.log(searchStr)
     if (searchStr.length >= 3) {
       var questionsToRender = questions.filter((question, index) => question.question_body.includes(searchStr))
     } else {

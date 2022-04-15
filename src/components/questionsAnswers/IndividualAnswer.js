@@ -4,7 +4,7 @@ const axios = require('axios');
 const IndividualAnswer = (props) => {
   const [helpful, setHelpful] = useState(props.answer.helpfulness)
   const [answerId, setAnswerId] = useState(props.answer.id)
-  console.log('answerId', answerId)
+
   const answer = props.answer
   const date = answer.date
   //const helpful = props.answer.helpfulness
@@ -15,7 +15,6 @@ const IndividualAnswer = (props) => {
   })
   const increaseHelpful = function (id) {
     var idStr = answerId.toString()
-    console.log('/qa/questions/' + idStr + '/helpful')
     axios({
       method: 'put',
       url: '/qa/questions/' + idStr + '/helpful',

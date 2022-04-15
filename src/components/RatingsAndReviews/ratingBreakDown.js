@@ -35,22 +35,29 @@ function RatingBreakDown(props) {
       .catch(err => console.log(err));
   }
 
-  useEffect( () => {
+  useEffect(() => {
     getRatingData();
     setProductId(props.productId)
   }, [props.productId])
 
-  console.log('inside radtings Breakdown', sumData)
   return (
     <React.Fragment>
       <div>
         <h1>Ratings and Reviews</h1>
       </div>
-      <div className="flex-right-container">
-        <div className="rating-score">
-          {aveData ? aveData : null}
+      <div className="row ave-star-ratings">
+        <div className="col-12 rating-score-container">
+          <div className="rating-score">
+            {aveData ? aveData : null}
+          </div>
         </div>
-        <div>
+        <div className="col-12 stars-rating-bar-container">
+          <div className="stars-rating-bar">
+            <Stars rating={aveData} />
+          </div>
+          <div>
+
+          </div>
         </div>
       </div>
       <div className="flex-down-container ratings-breakdown">

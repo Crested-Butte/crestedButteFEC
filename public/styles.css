@@ -754,7 +754,7 @@ html {
 .header-container {
   max-width: 1000px;
   background: white;
-  padding: 40px 200px;
+  padding: 45px 200px;
   text-align: center;
   position: relative;
 }
@@ -967,6 +967,7 @@ html {
 .answerer {
   font-size: 14px;
   opacity: 0.7;
+  word-wrap: break-word;
 }
 
 .float-right {
@@ -1183,13 +1184,23 @@ html {
 }
 
 .ratings-breakdown,
-.product-breakdown {
+.product-breakdown,
+.ave-star-ratings {
   background: #efe4d6;
   padding: 20px;
   box-shadow: 6px 6px 6px rgb(0 0 0 / 30%);
   border-radius: 3px;
 }
 
+.ave-star-ratings {
+  padding: 0;
+  justify-content: center;
+}
+.rating-score-container{
+display: flex;
+justify-content: center;
+padding:20px;
+}
 .rating-score {
   font-size: 46px;
   padding: 20px;
@@ -1199,6 +1210,17 @@ html {
   font-weight: bold;
   border: 5px solid var(--secondary-color);
   border-radius: 100px;
+}
+
+.stars-rating-bar-container{
+  background: white;
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}
+
+.stars-rating-bar {
+  width: auto;
 }
 
 .ratings-breakdown .ratings {
@@ -1453,6 +1475,30 @@ html {
   margin-left: 10px;
 }
 
+.response {
+  padding: 10px 20px;
+  background: #eee;
+  margin-top: 10px;
+}
+
+.response .answerer {
+  text-align: left;
+  word-wrap: break-word;
+  line-height: 25px;
+}
+
+.submit-feedback .submit-btn {
+  padding-top: 0;
+  padding-bottom: 30px;
+}
+
+.submit-feedback .close-btn button {
+  padding: 10px 15px;
+}
+
+.checkmark .fas {
+  color: var(--primary-color);
+}
 
 @media only screen and (max-width: 1500px) {
 

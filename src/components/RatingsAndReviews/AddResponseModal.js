@@ -7,10 +7,10 @@ function AddResponseModal(props) {
 
   const renderModal = () => {
     return (
-      <div className = "modal-expand">
+      <div className = "modal-expand submit-feedback">
         <div className = "modal-content">
           <div className ="modal-header">
-            <h6>{`Submit Feedback`}</h6>
+            <h5>{`Submit Feedback`}</h5>
             <div className="close-btn">
           <button onClick={closeModal}>X</button>
           </div>
@@ -18,7 +18,7 @@ function AddResponseModal(props) {
           <div className="modal-body">
           <textarea className="form-control" id="summary" type="text" onChange={props.onChange} maxLength = "60" ></textarea>
           </div>
-          <div className="show-more-btn">
+          <div className="show-more-btn submit-btn">
           <button onClick={closeModal}>submit</button>
           </div>
         </div>
