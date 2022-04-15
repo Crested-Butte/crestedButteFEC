@@ -8,6 +8,7 @@ function ReviewTile(props) {
   const [helpfulCount, setHelpfulCount] = useState(props.review.helpfulness);
   const [freeze, setFreeze] = useState(false);
   const[showModal, setShowModal] = useState(null)
+  const[replyText, setReplyText] = useState(null);
   const closeModal = () => setShowModal(null);
   const openModal = () => setShowModal(true);
   let {review} = props;
@@ -22,6 +23,14 @@ function ReviewTile(props) {
       </div>
     )
   }
+
+  const handleChangeText = (e) => {
+    e.persist();
+    let targetValue = e.target.value;
+    setReplyText(e.target.value)
+  }
+
+  console.log(replyText)
 
   const renderYesNo = (alreadySubmitted) => {
 
@@ -78,19 +87,19 @@ function ReviewTile(props) {
           <p className="answerer">
           <span>
             <b>  Response From Seller </b>
-            {!showModal &&
+            {!replyText ?
             (<span onClick={openModal}>
               <span className="answer-yes">add response</span>
-            </span >)}
+            </span >) : <span>{replyText}</span>}
           <span>
-              {`placeholder for seller response`}
             </span>
           </span>
         </p>
           </div>
           {showModal && <AddResponseModal
           showModal = {showModal}
-          closeModal = {closeModal} />}
+          closeModal = {closeModal}
+          onChange = {handleChangeText}/>}
           </div>
         </div>
       </div>
