@@ -34,7 +34,6 @@ const AddQuestion = (props) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     if (values.name && values.body && values.email) {
-      var str = 'sorry ' + values.nickname + ' the question: ' + values.body + ' is dumb'
       //alert(str)
       postQuestion(values)
       props.cb()

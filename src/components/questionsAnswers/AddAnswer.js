@@ -25,7 +25,6 @@ const AddAnswer = (props) => {
   }
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(values, id, typeof id)
     if (values.name && values.body && values.email) {
       postAnswer(values)
       props.cb()
