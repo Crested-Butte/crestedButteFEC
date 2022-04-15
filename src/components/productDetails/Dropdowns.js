@@ -7,16 +7,14 @@ const Dropdowns = (props) => {
   const [size, setSize] = useState('DEFAULT');
 
   useEffect(() => {
-    if (skus !== props.productInfo.skus) {
       setSkus(props.productInfo.skus)
-    }
-    if (styleId !== props.productInfo.style_id) {
+  }, [props.productInfo.skus])
+
+  useEffect(() => {
       setSize('DEFAULT');
       setQty('DEFAULT');
       setStyleId(props.productInfo.style_id)
-
-    }
-  }, [props.productInfo.skus])
+  }, [props.productInfo.style_id])
 
   const handleChange = (e) => {
     setSize(e.target.value)
@@ -32,7 +30,6 @@ const Dropdowns = (props) => {
       return <option value="DEFAULT" disabled>SELECT SIZE</option>
     }
   }
-
 
   const productQty = [];
   for (let i = 1; i <= qty; i++) {

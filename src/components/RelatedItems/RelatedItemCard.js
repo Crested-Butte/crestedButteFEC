@@ -3,17 +3,12 @@ const axios = require('axios');
 
 
 const RelatedItemCard = (props) => {
-  const [id, setId] = useState()
   const [data, setData] = useState({})
   const [images, setImages] = useState()
-
-  //console.log(props.product)
-  //var id = props.product.id
 
   var getData = (id) => {
     var str = '/products/' + id;
     return axios.get(str).then((response) => {
-      // console.log('data inside axios', response.data)
       setData(response.data)
     })
   }
@@ -31,13 +26,8 @@ const RelatedItemCard = (props) => {
 
 
   useEffect(() => {
-    // console.log('inside use effect of relatedItemCard')
-    // console.log(id, props.id)
-    if (id !== props.id) {
-      setId(props.id)
       getData(props.id)
       getImage(props.id)
-    }
   }, [props.id])
 
   function onMouseEnter(e) {
@@ -59,7 +49,7 @@ const RelatedItemCard = (props) => {
           <h5>{data.name}</h5>
           <h6>${data.default_price}</h6>
         </div>
-          <img onClick={() => { props.cb(id); $('.style-selector img').removeClass('selected'); $('.style-selector .image0').addClass('selected'); }}  name={props.value} src={images}></img>
+          <img onClick={() => { props.cb(props.id); $('.style-selector img').removeClass('selected'); $('.style-selector .image0').addClass('selected'); }}  name={props.value} src={images}></img>
 
         </div>
 

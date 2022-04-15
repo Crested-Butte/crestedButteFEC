@@ -13,16 +13,7 @@ const ProductDetails = (props) => {
     const [productInfo, setProductInfo] = useState();
     const [favoriteStyles, setFavoriteStyles] = useState([]);
     const [product, setProduct] = useState(props.product);
-    const [productId, setProductId] = useState(props.productId)
     const [styleName, setStyleName] = useState();
-    const [cart, setCart] = useState({
-        productName: product.name,
-        styles: "",
-        size: "",
-        qty: 0,
-        price: 0,
-        imageUrl: ""
-    })
 
     const getStyles = (str) => {
         str = str || props.productId
@@ -44,23 +35,11 @@ const ProductDetails = (props) => {
             }
             )
     }
+
     useEffect(() => {
         getStyles();
-        if (product !== props.product) {
-            setProduct(props.product);
-            setCart({
-                productName: props.product.name,
-                styles: "",
-                size: "",
-                qty: 0,
-                price: 0,
-                imageUrl: ""
-            })
-        }
-        if (productId !== props.productId) {
-            setProductId(props.productId)
-        }
-    }, [props.productId])
+        setProduct(props.product);
+    }, [props.product])
 
     const handleClick = (id) => {
         const selectedStyle = [];
@@ -123,7 +102,7 @@ const ProductDetails = (props) => {
                 </div>
                 <div className="products col-5">
                     <div className="product-info">
-                        {(productInfo && productId) ? <ProductInfo category={props.product.category} name={props.product.name} productInfo={productInfo} productId={productId} /> : <div>loading...</div>}
+                        {productInfo ? <ProductInfo category={props.product.category} name={props.product.name} productInfo={productInfo} productId={props.productId} /> : <div>loading...</div>}
                     </div>
                     <div className="styles row">
                         <h6>Styles <span className="style-name">{styleName}</span></h6>
