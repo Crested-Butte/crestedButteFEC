@@ -211,7 +211,6 @@ html {
 
 .expand-btn:hover {
   background: var(--primary-color);
-  ;
   color: #111111;
   opacity: 1;
 }
@@ -220,7 +219,7 @@ html {
 .arrow-btns {
   position: absolute;
   z-index: 0;
-  top: 43%;
+  top: 47%;
   width: 100%;
 }
 

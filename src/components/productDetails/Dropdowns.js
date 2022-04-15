@@ -54,6 +54,7 @@ const Dropdowns = (props) => {
         <select id="qty" defaultValue={productQty[0]}>
 
           {productQty.map((qty, index) => {
+
             if (productQty.length > 0) {
               return <option key={index} value={qty}>{qty}</option>
             } else {
