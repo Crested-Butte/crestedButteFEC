@@ -20,7 +20,7 @@ function ProductBreakDown(props) {
       .catch(err => console.log(err));
   }
 
-  useEffect(() => {getCharsData()},[])
+  useEffect(() => {getCharsData()},[props.productId])
 
   return (
 

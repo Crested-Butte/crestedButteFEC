@@ -53,7 +53,7 @@ function ProgressBarProduct(props) {
         <p>{`${lowHigh[key][0]}`}</p>
       </div>
       <div className = 'col-6' style ={{textAlign: 'right'}}>
-     <p>{`${lowHigh[key][0]}`}</p>
+     <p>{`${lowHigh[key][1]}`}</p>
       </div>
     </div>
     </div>

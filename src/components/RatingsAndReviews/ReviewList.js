@@ -10,7 +10,7 @@ function ReviewList(props) {
 
 
   const getReviews = (sort = null) => {
-    let paramsObj = { product_id: props.productId };
+    let paramsObj = { product_id: props.productId};
     if (sort) {
       paramsObj['sort'] = sort;
     }
@@ -20,6 +20,7 @@ function ReviewList(props) {
       params: paramsObj
     })
       .then(res => { setReviewData(res.data.results) })
+      .then(setProductId(props.productId))
       .catch(err => console.log(err));
   }
 
@@ -31,6 +32,8 @@ function ReviewList(props) {
   const handleChange = (e) => {
     getReviews(e.target.value);
   }
+
+  console.log(reviewData)
 
   const renderList = (arr, num) => {
     if (arr === undefined) {
@@ -48,7 +51,10 @@ function ReviewList(props) {
     }
   }
 
-  useEffect(() => { getReviews() }, [])
+  useEffect( () => {
+    getReviews();
+    setProductId(props.productId)
+  }, [props.productId])
 
 
 
