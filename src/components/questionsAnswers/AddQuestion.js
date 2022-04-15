@@ -21,7 +21,7 @@ const AddQuestion = (props) => {
     //console.log(values)
   }
   const postQuestion = function (data) {
-    console.log(typeof data.product_id)
+    console.log('inside qpost', data)
     axios({
     method: 'post',
     url: '/qa/questions',

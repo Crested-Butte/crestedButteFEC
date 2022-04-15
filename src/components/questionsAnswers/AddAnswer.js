@@ -3,7 +3,7 @@ const axios = require('axios');
 
 const AddAnswer = (props) => {
   const [values, setValues] = useState()
-  const id = props.id
+  const [id, setId] = useState(props.id)
 
   const postAnswer = function (data) {
     axios({
@@ -26,7 +26,9 @@ const AddAnswer = (props) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     if (values.name && values.body && values.email) {
+
       postAnswer(values)
+      setValues();
       props.cb()
     } else {
        alert('one or more values missing')

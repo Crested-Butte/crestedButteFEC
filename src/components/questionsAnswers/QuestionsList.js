@@ -48,10 +48,8 @@ const QuestionsList = (props) => {
     }
   }
   useEffect(() => {
-    if (props.productId !== productId) {
       loadQuestions()
-    }
-  })
+  }, [props.productId])
   return (
 
     <div>
