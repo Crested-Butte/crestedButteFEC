@@ -50,7 +50,6 @@ const ProductDetails = (props) => {
             }
         })
         setProductInfo(selectedStyle[0]);
-
     }
 
     const renderStyles = (styles) => {
@@ -58,7 +57,7 @@ const ProductDetails = (props) => {
             return <div>loading...</div>
         } else {
             return styles.map((style, index) =>
-                <StyleSelector productInfo={productInfo} handleFavoriteStyle={handleFavoriteStyle} handleClick={handleClick} style={style} key={index} value={index} />
+                <StyleSelector productInfo={productInfo} handleFavoriteStyle={handleFavoriteStyle} handleClick={handleClick} style={style} attr={style.name} key={index} value={index} />
             )
 
         }
