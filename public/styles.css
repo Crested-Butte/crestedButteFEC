@@ -65,7 +65,7 @@ html {
 .sub-header {
   position: fixed;
   top: -100px;
-  z-index: 1;
+  z-index: 2;
   background: var(--secondary-color);
   width: 100%;
   padding: 20px;
