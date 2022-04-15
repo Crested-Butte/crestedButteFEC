@@ -64,8 +64,6 @@ function ReviewTile(props) {
       .then(() => setHelpfulCount(currentCount + 1))
   }
 
-  useEffect(() => { increaseHelpful() }, [props.review.helpfulness])
-
   return (
     <div className="list-item">
       <div className="row">

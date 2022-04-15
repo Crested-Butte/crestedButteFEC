@@ -62,19 +62,19 @@ function RatingBreakDown(props) {
       </div>
       <div className="flex-down-container ratings-breakdown">
         <div>
-          {sumData ? <ProgressBarRatings starName={'1'} ratings={parseInt(reviewData[1])} sumData={sumData} /> : null}
+          {sumData ? <ProgressBarRatings starName={'1'} onClick={props.starFilterChange} ratings={parseInt(reviewData[1])} sumData={sumData} /> : null}
         </div>
         <div>
-          {sumData ? <ProgressBarRatings starName={'2'} ratings={parseInt(reviewData[2])} sumData={sumData} /> : null}
+          {sumData ? <ProgressBarRatings starName={'2'} onClick={props.starFilterChange} ratings={parseInt(reviewData[2])} sumData={sumData} /> : null}
         </div>
         <div>
-          {sumData ? <ProgressBarRatings starName={'3'} ratings={parseInt(reviewData[3])} sumData={sumData} /> : null}
+          {sumData ? <ProgressBarRatings starName={'3'} onClick={props.starFilterChange} ratings={parseInt(reviewData[3])} sumData={sumData} /> : null}
         </div>
         <div>
-          {sumData ? <ProgressBarRatings starName={'4'} ratings={parseInt(reviewData[4])} sumData={sumData} /> : null}
+          {sumData ? <ProgressBarRatings starName={'4'} onClick={props.starFilterChange} ratings={parseInt(reviewData[4])} sumData={sumData} /> : null}
         </div>
         <div>
-          {sumData ? <ProgressBarRatings starName={'5'} ratings={parseInt(reviewData[5])} sumData={sumData} /> : null}
+          {sumData ? <ProgressBarRatings starName={'5'} onClick={props.starFilterChange} ratings={parseInt(reviewData[5])} sumData={sumData} /> : null}
         </div>
       </div>
     </React.Fragment>
