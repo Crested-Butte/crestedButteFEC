@@ -13,8 +13,8 @@ const App = function () {
   const [product, setProduct] = useState()
   const [clickData, setClickData] = useState([]);
 
-  axios.defaults.baseURL = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/';
-  axios.defaults.headers.common['Authorization'] = TOKEN.TOKEN;
+  // axios.defaults.baseURL = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/';
+  // axios.defaults.headers.common['Authorization'] = TOKEN.TOKEN;
 
   function changeProductPage(str) {
     setProductId(str)
