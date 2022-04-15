@@ -11,13 +11,9 @@ const QuestionsAnswers = (props) => {
   const [showModal, setShowModal] = useState(false)
 
   useEffect( () => {
-    if (props.product.name !== productName) {
-      setProductName(props.product.name)
-    }
-    if (props.product.id !== productId) {
-      setProductId(props.product.id)
-    }
-  })
+    setProductName(props.product.name)
+    setProductId(props.product.id)
+  }, [props.product])
 
   const renderOut = () => {
     return (

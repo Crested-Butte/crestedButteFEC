@@ -3,16 +3,14 @@ const axios = require('axios');
 
 const IndividualAnswer = (props) => {
   const [helpful, setHelpful] = useState(props.answer.helpfulness)
-  const [answerId, setAnswerId] = useState(props.answer.id)
-
+  const answerId = props.answer.id
   const answer = props.answer
   const date = answer.date
-  //const helpful = props.answer.helpfulness
-  useEffect(() => {
-    if (answerId !== props.answer.id) {
-      setAnswerId(props.answer.id)
-    }
-  })
+  // useEffect(() => {
+  //   if (answerId !== props.answer.id) {
+  //     setAnswerId(props.answer.id)
+  //   }
+  // }, props)
   const increaseHelpful = function (id) {
     var idStr = answerId.toString()
     axios({
@@ -36,7 +34,7 @@ const IndividualAnswer = (props) => {
     <div>
       <p className="answer-body"><b>{props.answer.body}</b></p>
 
-      <p className="answerer"><span> by {answer.answerer_name}, at {getDate(date)}</span><span> | <b>  Answer helpful? </b> | <span onClick={() => increaseHelpful(answerId)}><span className="answer-yes">Yes</span>({helpful})</span></span></p>
+      <p className="answerer"><span> by {answer.answerer_name}, at {getDate(date)}</span><span> | <b>  Answer helpful? </b> | <span onClick={() => increaseHelpful(props.answer)}><span className="answer-yes">Yes</span>({helpful})</span></span></p>
 
     </div>
   )
