@@ -32,7 +32,7 @@ function AddQuestionModal(props) {
   }
   return (
     <div>
-      <div className="add-a-question">
+      <div id= "add-question" className="add-a-question">
       <button onClick={handleShow}>Add a Question</button>
       </div>
       <div id="AddQuestionModal" style={styles.modal}>

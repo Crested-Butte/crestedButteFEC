@@ -20,6 +20,7 @@ const App = function () {
     setProductId(str)
     getProduct(str)
   }
+
   function getProduct(str) {
     str = str || productId
     return axios.get('/products/' + str + '/')
@@ -32,10 +33,10 @@ const App = function () {
   function ClickTracker(event) {
     setClickData([
       ...clickData, {
-      element: event.srcElement,
-      time: event.timeStamp,
-      module: event.path[event.path.length - 7].className
-    }])
+        element: event.srcElement,
+        time: event.timeStamp,
+        module: event.path[event.path.length - 7].className
+      }])
   }
 
   useEffect(() => {
@@ -43,7 +44,7 @@ const App = function () {
     if (!product) {
       getProduct()
     };
-  })
+  },[])
 
   $(window).scroll(function () {
     var scroll = $(window).scrollTop();
@@ -109,7 +110,7 @@ const App = function () {
         {product ? <QuestionsAnswers product={product} /> : <div>loading</div>}
       </div>
 
-      <div className="ratings-reviews">
+      <div className="ratings-reviews" id="ratings-reviews">
         {product ? <RatingsAndReviews product={product} /> : <div>loading</div>}
       </div>
 

@@ -8,8 +8,6 @@ const ProductInfo = (props) => {
   const [originalPrice, setOriginalPrice] = useState(props.productInfo.original_price)
   const [salePrice, setSalePrice] = useState(props.productInfo.sale_price)
   const [styleId, setStyleId] = useState(props.productInfo.style_id)
-  const [reviewData, setReviewData] = useState();
-  const [productId, setProductId] = useState(props.productId)
   const [score, setScore] = useState();
 
 
@@ -25,43 +23,30 @@ const ProductInfo = (props) => {
     }
   }
 
-  const getReviews = (productId) => {
-    return axios.get(`/reviews/meta?product_id=${productId}`)
+  const getReviews = () => {
+    return axios.get(`/reviews/meta?product_id=${props.productId}`)
       .then(({ data }) => {
-        setReviewData(data.ratings)
-        if(reviewData){
-          const total =  Object.values(reviewData).reduce((a, b) => Number(a) + Number(b))
-          const ratings = (
-            Object.values(reviewData)
-              .map((num, i) => Number(num) * Number(i + 1))
-              .reduce((pre, cur) => pre + cur)/total
-          ).toFixed(1);
-          setScore(ratings)
-        }
+        const total = Object.values(data.ratings).reduce((pre, cur) => Number(pre) + Number(cur))
+        const ratings = (
+          Object.values(data.ratings)
+            .map((num, i) => Number(num) * Number(i + 1))
+            .reduce((pre, cur) => pre + cur) / total
+        ).toFixed(1);
+        setScore(ratings)
       })
   }
 
   useEffect(() => {
-    if (productId !== props.productId) {
-      setProductId(props.productId);
-      getReviews(productId);
-    } else {
-      getReviews(productId);
-    }
-
-    if (styleId !== props.productInfo.style_id) {
-      setProduct(props.productInfo);
-      setOriginalPrice(props.productInfo.original_price);
-      setSalePrice(props.productInfo.sale_price);
-      setStyleId(props.productInfo.style_id)
-    }
+    getReviews();
   }, [props.productId])
 
-  // console.log(score)
-  // console.log(Object.values(reviewData))
   return (
     <div className="product">
-      <Stars rating = {score}/>
+      <div className="star-ratings">
+        <Stars rating={score} />
+        <p><a href="#add-question">Read all reviews</a></p>
+        <div className="clear"></div>
+      </div>
       <div className="category">
         <h5>{props.category}</h5>
       </div>

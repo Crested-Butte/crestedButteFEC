@@ -9,11 +9,9 @@ const ImageGallery = (props) => {
 
 
   useEffect(() => {
-    if (styleId !== props.productInfo.style_id) {
       setImageIndex(0)
       setStyleId(props.productInfo.style_id)
-    }
-  })
+  },[props.productInfo.style_id])
 
   const onClickPrev = () => {
     if (imageIndex === 0) {

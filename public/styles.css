@@ -137,7 +137,7 @@ html {
 .slides {
   position: relative;
   width: 100%;
-  height: 660px;
+  height: 720px;
   overflow: hidden;
 
 }
@@ -246,7 +246,7 @@ html {
 }
 
 .image-thumbnails {
-  height: 600px;
+  height: 660px;
   -ms-overflow-style: none;
   overflow-y: scroll;
   -ms-overflow-style: none;
@@ -258,7 +258,7 @@ html {
 }
 
 .thumbnail {
-  height: 120px;
+  height: 132px;
 }
 
 .thumbnail img {
@@ -285,7 +285,7 @@ html {
 }
 
 .products {
-  height: 660px;
+  height: 720px;
   padding: 40px;
 }
 
@@ -589,6 +589,40 @@ html {
 
 .to-top:hover {
   opacity: 1
+}
+
+.product .starArr {
+  -webkit-transform: scale(0.8);
+  -moz-transform: scale(0.8);
+  -ms-transform: scale(0.8);
+  transform: scale(0.8);
+  /* float:left; */
+  position: absolute;
+  left: -15px;
+  top: 0;
+}
+
+.product .star-ratings {
+  position: relative;
+  height: 50px;
+}
+
+.product .star-ratings p {
+  position: absolute;
+  left: 140px;
+  top: 10px;
+  text-decoration: underline;
+
+  cursor: pointer;
+}
+
+.product .star-ratings a {
+  color: var(--secondary-color);
+  transition: 0.5s;
+}
+
+.product .star-ratings a:hover {
+  color: var(--primary-color);
 }
 
 /*****------------- Related Product -------------*****/
@@ -1103,7 +1137,7 @@ html {
   position: relative;
 }
 
-.ratings-left:after{
+.ratings-left:after {
   content: '';
   width: 0;
   position: absolute;
@@ -1499,8 +1533,8 @@ html {
     padding: 45px 200px;
   }
 
-  .ratings-left:after{
-    display:none;
+  .ratings-left:after {
+    display: none;
   }
 }
 
@@ -1561,43 +1595,49 @@ html {
 
 @media only screen and (max-width: 650px) {
   .related-product .col-3 {
-    width:50%;
+    width: 50%;
   }
 
   .header-container {
     padding: 45px 150px;
-}
+  }
 
-.q-a-list button, .question-modal button{
-  min-width:100px;
-}
+  .q-a-list button,
+  .question-modal button {
+    min-width: 100px;
+  }
 
-.answer-modal, .question-modal {
-  width: 300px;
-  height: 500px;
-  margin-left: -150px;
-  overflow: hidden;
-}
-.answer-modal-body h1, .question-modal-body h1 {
-  font-size: 18px;
-  padding-bottom:0;
-}
-.answer-modal-body h2, .question-modal-body h2 {
-  font-size: 16px;
-}
+  .answer-modal,
+  .question-modal {
+    width: 300px;
+    height: 500px;
+    margin-left: -150px;
+    overflow: hidden;
+  }
 
-.create-input {
-  padding: 5px 10px;
-}
+  .answer-modal-body h1,
+  .question-modal-body h1 {
+    font-size: 18px;
+    padding-bottom: 0;
+  }
 
-.modal-content {
-  width: 400px;
-  height: 500px;
-  overflow: auto;
-}
+  .answer-modal-body h2,
+  .question-modal-body h2 {
+    font-size: 16px;
+  }
 
-.close-btn button {
-  width: 28px;
-  height: 28px;
-}
+  .create-input {
+    padding: 5px 10px;
+  }
+
+  .modal-content {
+    width: 400px;
+    height: 500px;
+    overflow: auto;
+  }
+
+  .close-btn button {
+    width: 28px;
+    height: 28px;
+  }
 }
