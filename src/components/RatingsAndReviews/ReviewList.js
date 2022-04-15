@@ -33,8 +33,6 @@ function ReviewList(props) {
     getReviews(e.target.value);
   }
 
-  console.log(reviewData)
-
   const renderList = (arr, num) => {
     if (arr === undefined) {
       return (null)

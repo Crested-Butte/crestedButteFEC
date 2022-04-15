@@ -10,8 +10,6 @@ const IndividualQuestion = (props) => {
   var body = props.question.question_body
   var qId = props.question.question_id.toString()
   const increaseHelpful = function (id) {
-    console.log('/qa/questions/' + id + '/helpful')
-    console.log(typeof id)
     axios({
       method: 'put',
       url: '/qa/questions/' + id + '/helpful',
