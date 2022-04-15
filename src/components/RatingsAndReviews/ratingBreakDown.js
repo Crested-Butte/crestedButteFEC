@@ -5,6 +5,8 @@ const axios = require('axios');
 
 function RatingBreakDown(props) {
   const [reviewData, setReviewData] = useState(null);
+  const [productId, setProductId] = useState();
+  const [aveData, setAveData] = useState();
   const [sumData, setSumData] = useState(null);
 
   const getRatingData = () => {
@@ -19,15 +21,26 @@ function RatingBreakDown(props) {
         return res.data.ratings
       })
       .then(data => {
+        const total = Object.values(data).reduce((pre, cur) => Number(pre) + Number(cur))
+        const ratings = (
+          Object.values(data)
+            .map((num, i) => Number(num) * Number(i + 1))
+            .reduce((pre, cur) => pre + cur) / total
+        ).toFixed(1);
+        setAveData(ratings);
         setReviewData(data);
         setSumData(Object.values(data).reduce((a, b) => (parseInt(a) + parseInt(b))))
       })
+      .then(setProductId(props.productId))
       .catch(err => console.log(err));
   }
 
-  useEffect(() => { getRatingData() }, [])
+  useEffect( () => {
+    getRatingData();
+    setProductId(props.productId)
+  }, [props.productId])
 
-
+  console.log('inside radtings Breakdown', sumData)
   return (
     <React.Fragment>
       <div>
@@ -35,7 +48,7 @@ function RatingBreakDown(props) {
       </div>
       <div className="flex-right-container">
         <div className="rating-score">
-          {sumData ? `${sumData / 5.0}` : null}
+          {aveData ? aveData : null}
         </div>
         <div>
         </div>

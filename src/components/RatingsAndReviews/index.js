@@ -6,27 +6,34 @@ import RatingBreakDown from './ratingBreakDown.js';
 import ProductBreakDown from './ProductBreakDown.js'
 
 const RatingsAndReviews = (props) => {
+  const [productId, setProductId] = useState(props.product.id);
+  const [productName, setProductName] = useState(props.product.name)
   const[showModal, setShowModal] = useState(null)
   const closeModal = () => setShowModal(null);
   const openModal = () => setShowModal(true);
 
+  useEffect( () => {
+    setProductName(props.product.name)
+    setProductId(props.product.id)
+  }, [props.product])
+
   return (
     <div className="row">
       <div className="col-4 flex-down-container ratings-left">
-        <RatingBreakDown productId = {props.product.id}/>
-        <ProductBreakDown productId = {props.product.id}/>
+        <RatingBreakDown productId = {productId}/>
+        <ProductBreakDown productId = {productId}/>
       </div>
       <div className="col-8 flex-down-container ratings-right">
-        <ReviewList productId = {props.product.id}/>
+        <ReviewList productId = {productId}/>
         <br></br>
-        <div className="write-review-btn">
-        {!showModal && <button onClick = {openModal}>Write a Review</button>}
-        </div>
+          <div className="write-review-btn">
+            {!showModal && <button onClick = {openModal}>Write a Review</button>}
+          </div>
         {showModal && <AddReviewModal
           showModal = {showModal}
           closeModal = {closeModal}
-          productName = {props.product.name}
-          productId = {props.product.id} />}
+          productName = {productName}
+          productId = {productId} />}
       </div>
     </div>
   )

@@ -4,7 +4,7 @@ import SmallButton from '../sharedComponents/smallButton.js';
 import YesNoRadioButton from '../sharedComponents/yesNoRadioButton.js';
 import Characteristics from './characteristics.js';
 import UploadPhoto from '../sharedComponents/uploadPhoto.js';
-import RateStarUser from './RateStarUser.js';
+import RateStarUser from './rateStarUser.js';
 const axios = require('axios').default;
 
 function AddReview(props) {
