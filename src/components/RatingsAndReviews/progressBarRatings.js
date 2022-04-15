@@ -4,6 +4,12 @@ function ProgressBarRatings(props) {
 
   let {starName, ratings, sumData} = props;
 
+  console.log(props.onChange)
+
+  const selectStarFilter = () => {
+    props.onClick(starName);
+  }
+
   const containerStyles = {
     height: 10,
     width: '100%',
@@ -19,7 +25,7 @@ function ProgressBarRatings(props) {
   }
 
   return (
-    <div className = "flex-right-container ratings">
+    <div className = "flex-right-container ratings" value = {`${props.starName}`} onClick = {selectStarFilter}>
       <div>
         <h6 className = "ratings-stars">{`${props.starName}`} Stars</h6>
       </div>
