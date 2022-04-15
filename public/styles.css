@@ -115,6 +115,10 @@ html {
   margin-right: 10px;
 }
 
+.social-media .row .col-4 {
+  text-align: center;
+}
+
 .social-media .fab {
   color: var(--primary-color);
   font-size: 26px;
@@ -122,7 +126,10 @@ html {
 }
 
 .social-media .fab:hover {
-  font-size: 30px;
+  -webkit-transform: scale(1.2);
+  -moz-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  transform: scale(1.2);
 }
 
 .product-details {
@@ -1039,7 +1046,7 @@ html {
 
 .answer-modal-body h2,
 .question-modal-body h2 {
-  font-size: 26px;
+  font-size: 16px;
   color: var(--primary-color);
 }
 
@@ -1100,6 +1107,12 @@ html {
 
 .ratings-stars {
   text-decoration: underline;
+  width: 55px;
+}
+
+.ratings-count {
+  width: 30px;
+  text-align: right;
 }
 
 .scroll-list {
@@ -1180,6 +1193,9 @@ html {
 .rating-score {
   font-size: 46px;
   padding: 20px;
+  width: 120px;
+  text-align: center;
+  height: 120px;
   font-weight: bold;
   border: 5px solid var(--secondary-color);
   border-radius: 100px;
