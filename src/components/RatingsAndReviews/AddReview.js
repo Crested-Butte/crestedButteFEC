@@ -65,25 +65,81 @@ function AddReview(props) {
     })
   }
 
+  // const validateForm = (data) => {
+  //   if (!data) {
+  //       console.log('invalid form!');
+  //       return false;
+  //   } else if (!data.name) {
+  //       console.log('please enter a nickname');
+  //       return false
+  //   } else if (!data.body || data.body.length < 50) {
+  //       console.log('body must have at least 50 charaters!')
+  //   } else if (!data.summary) {
+  //       console.log('summary field is blank. Please fill in');
+  //       return false;
+  //   } else if (!data.characteristics) {
+  //       console.log('please submit at least on charactertic');
+  //       return false;
+  //   } else if (!data.recommend) {
+  //       console.log('please submit a recommend');
+  //       return false;
+  //   } else {
+  //       return true;
+  //   }
+  // }
 
+  const validateForm = (data) => {
+    let validationRes = {flag:true, resText: 'FORM ERROR! PLEASE CORRECT\n'}
+
+    if (!data) {
+      validationRes.flag = false;
+      validationRes.resText += 'invalid form!\n';
+    }
+    if (!data.name) {
+      validationRes.flag = false;
+      validationRes.resText += 'please enter a nickname\n';
+    }
+    if (!data.body || data.body.length < 50) {
+      validationRes.flag = false;
+      validationRes.resText+= 'body must have at least 50 charaters!\n';
+    }
+    if (!data.summary) {
+      validationRes.flag = false;
+      validationRes.resText += 'summary field should not beß blank\n';
+    }
+    if (!data.characteristics) {
+      validationRes.flag = false;
+      validationRes.resText += 'please submit at least on charactertic\n';
+    }
+    if (!data.recommend) {
+      validationRes.flag = false;
+      validationRes.resText += 'please submit a recommendation\n';
+    }
+    return validationRes;
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post('/reviews',{
-      "product_id": formData.product_id,
-      "rating": formData.ratings,
-      "summary": formData.summary,
-      "body": formData.body,
-      "recommend": formData.recommend,
-      "name": formData.name,
-      "email": formData.email,
-      "photos": formData.photos,
-      "characteristics": formData.characteristics
-    })
-      .then(res => console.log('success!', res))
-      .catch(err => console.log('err'));
+    let validated = validateForm(formData);
+    console.log('inside validate Form', validated)
+    if (validated.flag) {
+      axios.post('/reviews',{
+        "product_id": formData.product_id,
+        "rating": formData.ratings,
+        "summary": formData.summary,
+        "body": formData.body,
+        "recommend": formData.recommend,
+        "name": formData.name,
+        "email": formData.email,
+        "photos": formData.photos,
+        "characteristics": formData.characteristics
+      })
+        .then(res => console.log('success!', res))
+        .catch(err => console.log(validated));
+    } else {
+      alert(validated.resText);
+    }
   }
-
   console.log(formData);
 
   return (
@@ -123,7 +179,7 @@ function AddReview(props) {
       <div className="row review-body">
         <div className="col">
         <h6>Review body</h6>
-          <textarea className="form-control" id="body" type="text" onChange={handleChangeText} maxLength = "1000"></textarea>
+          <textarea className="form-control" id="body" type="text" onChange={handleChangeText} minLength = "40" maxLength = "1000" placeholder = "Why did you like the product or not?"></textarea>
 
         </div>
       </div>
