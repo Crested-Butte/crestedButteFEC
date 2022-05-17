@@ -65,29 +65,6 @@ function AddReview(props) {
     })
   }
 
-  // const validateForm = (data) => {
-  //   if (!data) {
-  //       console.log('invalid form!');
-  //       return false;
-  //   } else if (!data.name) {
-  //       console.log('please enter a nickname');
-  //       return false
-  //   } else if (!data.body || data.body.length < 50) {
-  //       console.log('body must have at least 50 charaters!')
-  //   } else if (!data.summary) {
-  //       console.log('summary field is blank. Please fill in');
-  //       return false;
-  //   } else if (!data.characteristics) {
-  //       console.log('please submit at least on charactertic');
-  //       return false;
-  //   } else if (!data.recommend) {
-  //       console.log('please submit a recommend');
-  //       return false;
-  //   } else {
-  //       return true;
-  //   }
-  // }
-
   const validateForm = (data) => {
     let validationRes = {flag:true, resText: 'FORM ERROR! PLEASE CORRECT\n'}
 
@@ -152,7 +129,7 @@ function AddReview(props) {
         </div>
         <div className="col email">
           <h6>Email</h6>
-          <input className="form-control" id="email" type="text" onChange={handleChangeText} maxLength = "60" placeholder="Example: pschaeff@email.com"></input>
+          <input className="form-control" id="email" type="text" onChange={handleChangeText} maxLength = "60" placeholder="Example: jackson11@email.com"></input>
           <p>For privacy reasons, do not use your full name or email address</p>
         </div>
       </div>
