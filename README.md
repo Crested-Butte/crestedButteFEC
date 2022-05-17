@@ -29,4 +29,12 @@ FEC is a React single page E-Commerce application. The goal of this project is t
 #### Q & A by Kyle Hatch
 
 #### Reviews & Ratings by Peter Schaefferkoetter
-![Ratings and Reviews](../readmePics/crestedbutte.png)
+![Ratings and Reviews](./crestedbutte.png)
+
+Ratings and reviews on e-Commerce websites assist customers in their decision-making process to purchase a given product. Additionally, the module gives customers a way to provide feedback to the vendor and other customers. The module allows users to write, read, and browse reviews.  Features embedded within the module include
+-	A sortable list of reviews that have been submitted by other users
+-	A star rating system ranging from 1 (lowest) to 5 (highest) stars
+-	A rating breakdown summary that gives users to ability to filter on a star rating
+-	A product breakdown summary giving feedback on specific product characteristics
+-	A form for users to submit reviews
+
