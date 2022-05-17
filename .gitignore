@@ -11,6 +11,7 @@ logs
 node_modules
 bower_components
 public/bundle.js
+config.js
 *.sublime*
 
 psd
