@@ -29,3 +29,4 @@ FEC is a React single page E-Commerce application. The goal of this project is t
 #### Q & A by Kyle Hatch
 
 #### Reviews & Ratings by Peter Schaefferkoetter
+![Ratings and Reviews](../readmePics/crestedbutte.png)
