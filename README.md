@@ -1,17 +1,22 @@
 # CrestedButte - A Front End e-Commerce Application
 
+## Team members
+[JP Chang](https://www.linkedin.com/in/junpeng-c-001/)
+Kyle Hatch
+[Peter Schaefferkoetter](https://www.linkedin.com/in/pschaefferkoetter/)
+
 ## Overview
 CrestedButte is a React single page E-Commerce application. The goal of this project is to deliver a fully functional web application that meets the business specifications and requirements outlined by project stakeholders. We worked together on a single code base by dividing up the work among team members of three and working collaboratively to produce the application, integrated the front end with the existing API for the product.
 
-## Tech Specs
-- React
-- Express
-- Axios
-- Webpack
-- Babel
-- Node.js
-- Jest
-- Bootstrap
+## Tech Stack
+- [React](https://reactjs.org/)
+- [Express](http://expressjs.com/)
+- [Axios](https://axios-http.com/)
+- [Webpack](https://webpack.js.org/)
+- [Babel](https://babeljs.io/)
+- [Node.js](https://nodejs.org/en/)
+- [Jest](https://jestjs.io/)
+- [Bootstrap](https://getbootstrap.com/)
 
 ## Components
 #### Product Overview by JP Chang
