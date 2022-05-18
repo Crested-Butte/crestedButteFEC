@@ -1,7 +1,7 @@
 # CrestedButte - A Front End e-Commerce Application
 
 ## Overview
-FEC is a React single page E-Commerce application. The goal of this project is to deliver a fully functional web application that meets the business specifications and requirements outlined by project stakeholders. We worked together on a single code base by dividing up the work among team members of three and working collaboratively to produce the application, integrated the front end with the existing API for the product.
+CrestedButte is a React single page E-Commerce application. The goal of this project is to deliver a fully functional web application that meets the business specifications and requirements outlined by project stakeholders. We worked together on a single code base by dividing up the work among team members of three and working collaboratively to produce the application, integrated the front end with the existing API for the product.
 
 ## Tech Specs
 - React
