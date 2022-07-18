@@ -1,28 +1,11 @@
 import React, { useState, useEffect } from "react";
 
-function UploadPhoto(props) {
-  const [photos, setPhoto] = useState([])
+function ShowPics(props) {
 
-  const handleChange = e => {
-    if (e.target.files.length) {
-      let img = new Image();
-      img.src = URL.createObjectURL(e.target.files[0]);
-      setPhoto(
-        [...photos, img.src],
-        );
-    }
-  };
-
-  useEffect(
-     () => {
-      props.onChange('photos',photos);
-    }, [photos]
-  )
-
+  let{photos} = props;
 
   return (
     <div className="upload-photo">
-      <input type="file" onChange={handleChange}/>
         <div className = "flex-right-container">
           <div className = "style-selector col-2">
             {photos[0] && <img src={photos[0]}/>}
@@ -42,6 +25,10 @@ function UploadPhoto(props) {
         </div>
     </div>
   );
+
 }
 
-export default UploadPhoto;
+
+
+
+export default ShowPics;

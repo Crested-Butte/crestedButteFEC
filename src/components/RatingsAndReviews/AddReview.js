@@ -23,6 +23,8 @@ function AddReview(props) {
     });
   }
 
+  console.log('Form Data =>:', formData)
+
   const handleChangeGeneral = (propertyName, value) => {
     setFormData({
       ...formData,

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import getUserandDate from '../sharedComponents/userNameAndDate.js';
 import AddResponseModal from './AddResponseModal.js';
 import Stars from '../sharedComponents/starRatings.js';
+import ShowPics from './ShowPics.js';
 const axios = require('axios');
 
 function ReviewTile(props) {
@@ -105,6 +106,8 @@ function ReviewTile(props) {
       <div className="row review-body">
         {review.body}
       </div>
+      {review.photos && review.photos.length > 0 && <ShowPics
+        photos = {review.photos} />}
       <div className="row review-reccomend">
         {review.recommend ? reccomendReview() : null}
       </div>
