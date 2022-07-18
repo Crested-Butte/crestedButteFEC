@@ -9,11 +9,9 @@ const axios = require('axios').default;
 
 function AddReview(props) {
   const [formData, setFormData] = useState({['product_id']:props.productId});
-  const[showModal, setShowModal] = useState(null);
-  const closeModal = () => setShowModal(null);
-  const openModal = () => setShowModal(true);
 
   let charsId = props.charsId;
+  console.log('where in props', props)
 
   const handleChangeText = (e) => {
     e.persist();
@@ -65,29 +63,6 @@ function AddReview(props) {
     })
   }
 
-  // const validateForm = (data) => {
-  //   if (!data) {
-  //       console.log('invalid form!');
-  //       return false;
-  //   } else if (!data.name) {
-  //       console.log('please enter a nickname');
-  //       return false
-  //   } else if (!data.body || data.body.length < 50) {
-  //       console.log('body must have at least 50 charaters!')
-  //   } else if (!data.summary) {
-  //       console.log('summary field is blank. Please fill in');
-  //       return false;
-  //   } else if (!data.characteristics) {
-  //       console.log('please submit at least on charactertic');
-  //       return false;
-  //   } else if (!data.recommend) {
-  //       console.log('please submit a recommend');
-  //       return false;
-  //   } else {
-  //       return true;
-  //   }
-  // }
-
   const validateForm = (data) => {
     let validationRes = {flag:true, resText: 'FORM ERROR! PLEASE CORRECT\n'}
 
@@ -121,7 +96,6 @@ function AddReview(props) {
   const handleSubmit = (e) => {
     e.preventDefault();
     let validated = validateForm(formData);
-    console.log('inside validate Form', validated)
     if (validated.flag) {
       axios.post('/reviews',{
         "product_id": formData.product_id,
@@ -134,13 +108,14 @@ function AddReview(props) {
         "photos": formData.photos,
         "characteristics": formData.characteristics
       })
-        .then(res => console.log('success!', res))
+        .then(res => {
+          props.closeModal();
+          return console.log('success!', res)})
         .catch(err => console.log(validated));
     } else {
       alert(validated.resText);
     }
   }
-  console.log(formData);
 
   return (
     <form>
