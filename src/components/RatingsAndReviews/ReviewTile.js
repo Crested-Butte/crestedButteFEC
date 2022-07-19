@@ -20,7 +20,7 @@ function ReviewTile(props) {
   const reccomendReview = () => (
     <div className="col checkmark">
       <i className="fas fa-check"></i>
-      &nbsp;  I reccomend this review
+      &nbsp;  I recommend this item
     </div>
   );
 

@@ -24,7 +24,7 @@ function AddResponseModal(props) {
         </div>
       </div>
     )
-  }
+  };
 
   return (
     <>{showModal && renderModal()}</>

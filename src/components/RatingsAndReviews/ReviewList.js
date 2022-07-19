@@ -27,7 +27,7 @@ function ReviewList(props) {
     if (sort) {
       paramsObj['sort'] = sort;
     }
-    if (count ) {
+    if (count) {
       paramsObj['count'] = count;
     }
     axios({
