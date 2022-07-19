@@ -6,57 +6,63 @@ import ShowPics from './ShowPics.js';
 const axios = require('axios');
 
 function ReviewTile(props) {
-  const [helpfulCount, setHelpfulCount] = useState(props.review.helpfulness);
+  const { review } = props;
+  const { helpfulness, rating } = review;
+  const [helpfulCount, setHelpfulCount] = useState(helpfulness);
   const [freeze, setFreeze] = useState(false);
-  const [showModal, setShowModal] = useState(null)
+  const [showModal, setShowModal] = useState(null);
   const [replyText, setReplyText] = useState(null);
   const closeModal = () => setShowModal(null);
   const openModal = () => setShowModal(true);
-  let { review } = props;
 
-  useEffect(() =>
-    setHelpfulCount(props.review.helpfulness), [props.review.helpfulness])
+  useEffect(() => setHelpfulCount(helpfulness), [helpfulness]);
 
-  const reccomendReview = () => {
-    return (
-      <div className="col checkmark">
-        <i className="fas fa-check"></i> &nbsp;  I reccomend this review
-      </div>
-    )
-  }
+  const reccomendReview = () => (
+    <div className="col checkmark">
+      <i className="fas fa-check"></i>
+      &nbsp;  I reccomend this review
+    </div>
+  );
 
   const handleChangeText = (e) => {
     e.persist();
     let targetValue = e.target.value;
-    setReplyText(e.target.value)
-  }
+    setReplyText(e.target.value);
+  };
 
   const renderYesNo = (alreadySubmitted) => {
     if (alreadySubmitted) {
       return (
-        <p className="answerer"><span> <b>  Review helpful </b> <span> <span className="answer-yes">Yes</span>
-          <span> <span className="answer-yes">No</span>{`${helpfulCount}`}</span >
-        </span ></span>
-        </p>
-      )
-    } else {
-      return (
         <p className="answerer">
           <span>
             <b>  Review helpful </b>
-            <span onClick={() => { increaseHelpful(freeze) }}>
-              <span className="answer-yes">Yes</span>
-            </span >
-            <span onClick={() => { setFreeze(true) }}>
-              <span className="answer-yes">No</span>
-            </span >
             <span>
-              {`${helpfulCount}`}
+              <span className="answer-yes">Yes</span>
+              <span>
+                <span className="answer-yes">No</span>
+                {`${helpfulCount}`}
+              </span>
             </span>
           </span>
         </p>
-      )
+      );
     }
+    return (
+      <p className="answerer">
+        <span>
+          <b>  Review helpful </b>
+          <span onClick={() => { increaseHelpful(freeze) }}>
+            <span className="answer-yes">Yes</span>
+          </span>
+          <span onClick={() => { setFreeze(true); }}>
+            <span className="answer-yes">No</span>
+          </span>
+          <span>
+            {`${helpfulCount}`}
+          </span>
+        </span>
+      </p>
+    );
   }
   const increaseHelpful = function () {
     let currentCount = helpfulCount || props.review.helpfulness
@@ -69,14 +75,11 @@ function ReviewTile(props) {
     <div className="list-item">
       <div className="row">
         <div className="col">
-          <Stars rating={review.rating} />
+          <Stars rating={rating} />
         </div>
         <div className="col user-and-date flex-down-container" >
           <div>
             {getUserandDate(review)}
-          </div>
-          <div>
-
           </div>
         </div>
       </div>
@@ -84,17 +87,22 @@ function ReviewTile(props) {
       <div className="write-review-btn response">
         <p className="answerer">
           <span>
-            <b>  Response From Seller </b>   </span>
-          {!replyText ?
-            (<span onClick={openModal}>
+            <b>  Response From Seller </b>
+          </span>
+          {!replyText ? (
+            <span onClick = {openModal}>
               <span className="answer-yes">add response</span>
-            </span >) : <span>{replyText}</span>}
+            </span>
+          ) : <span>{replyText}</span>}
         </p>
       </div>
-      {showModal && <AddResponseModal
-        showModal={showModal}
-        closeModal={closeModal}
-        onChange={handleChangeText} />}
+      {showModal && (
+        <AddResponseModal
+          showModal={showModal}
+          closeModal={closeModal}
+          onChange={handleChangeText}
+        />
+      )}
       <div className="row review-summary">
         <div className="col">
           <strong>{review.summary}</strong>
