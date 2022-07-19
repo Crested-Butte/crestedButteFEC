@@ -6,8 +6,6 @@ import ShowPics from './ShowPics.js';
 const axios = require('axios');
 
 function ReviewTile(props) {
-  const { review } = props;
-  const { helpfulness, rating } = review;
   const [helpfulCount, setHelpfulCount] = useState(helpfulness);
   const [freeze, setFreeze] = useState(false);
   const [showModal, setShowModal] = useState(null);
@@ -15,9 +13,12 @@ function ReviewTile(props) {
   const closeModal = () => setShowModal(null);
   const openModal = () => setShowModal(true);
 
+  const { review } = props;
+  const { helpfulness, rating } = review;
+
   useEffect(() => setHelpfulCount(helpfulness), [helpfulness]);
 
-  const reccomendReview = () => (
+  const recommendReview = () => (
     <div className="col checkmark">
       <i className="fas fa-check"></i>
       &nbsp;  I recommend this item
@@ -64,6 +65,7 @@ function ReviewTile(props) {
       </p>
     );
   }
+
   const increaseHelpful = function () {
     let currentCount = helpfulCount || props.review.helpfulness
     var idStr = review.review_id.toString()
@@ -117,7 +119,7 @@ function ReviewTile(props) {
       {review.photos && review.photos.length > 0 && <ShowPics
         photos = {review.photos} />}
       <div className="row review-reccomend">
-        {review.recommend ? reccomendReview() : null}
+        {review.recommend ? recommendReview() : null}
       </div>
     </div>
   )

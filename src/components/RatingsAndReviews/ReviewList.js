@@ -5,12 +5,9 @@ const axios = require('axios');
 function ReviewList(props) {
   const [reviewData, setReviewData] = useState(null);
   const [filteredData, setFilteredData] = useState(null)
-  const [productId, setProductId] = useState();
   const [tilesShown, setTilesShown] = useState(2);
-  const [moreTilesBtn, setMoreTilesBtn] = useState(null);
 
-
-  console.log('inside Review List', filteredData)
+  let {productId, starFilter} = props;
 
   const filterDataByStar = (arr, starVal) => {
     if (!starVal) {
@@ -23,7 +20,7 @@ function ReviewList(props) {
 
 
   const getReviews = (sort = null, count = 100) => {
-    let paramsObj = { product_id: props.productId};
+    let paramsObj = {product_id: productId};
     if (sort) {
       paramsObj['sort'] = sort;
     }
@@ -38,7 +35,6 @@ function ReviewList(props) {
       .then(res => {
         filterDataByStar(res.data.results)
         setReviewData(res.data.results) })
-      .then(setProductId(props.productId))
       .catch(err => console.log(err));
   }
 
@@ -61,7 +57,8 @@ function ReviewList(props) {
             <ReviewTile
               key={index}
               review={review}
-            />)}
+            />
+          )}
         </div>
       )
     }
@@ -69,13 +66,12 @@ function ReviewList(props) {
 
   useEffect( () => {
     getReviews();
-    setProductId(props.productId)
-  }, [props.productId])
+  }, [productId])
 
 
   useEffect(() => {
-    filterDataByStar(reviewData, props.starFilter)
-  },[props.starFilter]);
+    filterDataByStar(reviewData, starFilter)
+  },[starFilter]);
 
   return (
     <div className="flex-down-container reviews-container">

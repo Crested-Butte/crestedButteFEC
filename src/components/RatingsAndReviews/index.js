@@ -25,20 +25,30 @@ const RatingsAndReviews = (props) => {
   return (
     <div className="row">
       <div className="col-4 flex-down-container ratings-left">
-        <RatingBreakDown starFilterChange = {starFilterChange} productId = {productId} starFilter = {starFilter}/>
-        <ProductBreakDown productId = {productId}/>
+        {<RatingBreakDown
+          starFilterChange = {starFilterChange}
+          productId = {productId}
+          starFilter = {starFilter}
+        />}
+        {<ProductBreakDown
+          productId = {productId}
+        />}
       </div>
       <div className="col-8 flex-down-container ratings-right">
-        <ReviewList productId = {productId} starFilter = {starFilter}/>
+        {<ReviewList
+          productId = {productId}
+          starFilter = {starFilter}
+        />}
         <br></br>
-          <div className="write-review-btn">
-            {!showModal && <button onClick = {openModal}>Write a Review</button>}
-          </div>
+        <div className="write-review-btn">
+          {!showModal && <button onClick = {openModal}>Write a Review</button>}
+        </div>
         {showModal && <AddReviewModal
           showModal = {showModal}
           closeModal = {closeModal}
           productName = {productName}
-          productId = {productId} />}
+          productId = {productId}
+        />}
       </div>
     </div>
   )

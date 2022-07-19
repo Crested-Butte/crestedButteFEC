@@ -5,16 +5,17 @@ const axios = require('axios');
 
 function RatingBreakDown(props) {
   const [reviewData, setReviewData] = useState(null);
-  const [productId, setProductId] = useState();
   const [aveData, setAveData] = useState();
   const [sumData, setSumData] = useState(null);
+
+  let {productId, starFilterChange} = props;
 
   const getRatingData = () => {
     axios({
       method: 'get',
       url: '/reviews/meta',
       params: {
-        product_id: props.productId
+        product_id: productId
       }
     })
       .then(res => {
@@ -31,14 +32,12 @@ function RatingBreakDown(props) {
         setReviewData(data);
         setSumData(Object.values(data).reduce((a, b) => (parseInt(a) + parseInt(b))))
       })
-      .then(setProductId(props.productId))
       .catch(err => console.log(err));
   }
 
   useEffect(() => {
     getRatingData();
-    setProductId(props.productId)
-  }, [props.productId])
+  }, [productId])
 
   return (
     <React.Fragment>
@@ -56,25 +55,24 @@ function RatingBreakDown(props) {
             <Stars rating={aveData} />
           </div>
           <div>
-
           </div>
         </div>
       </div>
       <div className="flex-down-container ratings-breakdown">
         <div>
-          {sumData ? <ProgressBarRatings starName={'1'} onClick={props.starFilterChange} ratings={parseInt(reviewData[1])} sumData={sumData} /> : null}
+          {sumData ? <ProgressBarRatings starName={'1'} onClick={starFilterChange} ratings={parseInt(reviewData[1])} sumData={sumData} /> : null}
         </div>
         <div>
-          {sumData ? <ProgressBarRatings starName={'2'} onClick={props.starFilterChange} ratings={parseInt(reviewData[2])} sumData={sumData} /> : null}
+          {sumData ? <ProgressBarRatings starName={'2'} onClick={starFilterChange} ratings={parseInt(reviewData[2])} sumData={sumData} /> : null}
         </div>
         <div>
-          {sumData ? <ProgressBarRatings starName={'3'} onClick={props.starFilterChange} ratings={parseInt(reviewData[3])} sumData={sumData} /> : null}
+          {sumData ? <ProgressBarRatings starName={'3'} onClick={starFilterChange} ratings={parseInt(reviewData[3])} sumData={sumData} /> : null}
         </div>
         <div>
-          {sumData ? <ProgressBarRatings starName={'4'} onClick={props.starFilterChange} ratings={parseInt(reviewData[4])} sumData={sumData} /> : null}
+          {sumData ? <ProgressBarRatings starName={'4'} onClick={starFilterChange} ratings={parseInt(reviewData[4])} sumData={sumData} /> : null}
         </div>
         <div>
-          {sumData ? <ProgressBarRatings starName={'5'} onClick={props.starFilterChange} ratings={parseInt(reviewData[5])} sumData={sumData} /> : null}
+          {sumData ? <ProgressBarRatings starName={'5'} onClick={starFilterChange} ratings={parseInt(reviewData[5])} sumData={sumData} /> : null}
         </div>
       </div>
     </React.Fragment>
