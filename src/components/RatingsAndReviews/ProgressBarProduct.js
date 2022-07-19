@@ -2,12 +2,9 @@ import React, { useState, useEffect } from "react";
 
 function ProgressBarProduct(props) {
 
-
-  let data = props.data;
+  let {data} = props;
   let key = Object.keys(data)[0];
   let val = Object.values(data)[0]
-
-
 
   const containerStyles = {
     height: 10,
@@ -35,8 +32,6 @@ function ProgressBarProduct(props) {
     Length: ['Runs short', 'Runs long'],
     Fit: ['Runs tight', 'Runs Long']
   }
-
-
 
   return (
     <div className="progress-bar-container">

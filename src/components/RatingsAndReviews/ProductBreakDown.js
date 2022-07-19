@@ -4,13 +4,15 @@ const axios = require('axios');
 
 function ProductBreakDown(props) {
   const [reviewData, setReviewData] = useState(null);
+  
+  let {productId} = props;
 
   const getCharsData = () => {
     axios({
       method: 'get',
       url: '/reviews/meta',
       params: {
-        product_id: props.productId
+        product_id: productId
       }
     })
       .then (res => {
@@ -20,21 +22,19 @@ function ProductBreakDown(props) {
       .catch(err => console.log(err));
   }
 
-  useEffect(() => {getCharsData()},[props.productId])
+  useEffect(() => {getCharsData()},[productId])
 
   return (
-
     <div className = "flex-down-container product-breakdown">
       <div>
-        {reviewData ?
-          Object.keys(reviewData).map((key) => {
-            return <ProgressBarProduct
-              key = {reviewData[key].id}
-              data = {{[key]:reviewData[key].value}}/>
-          }) : null }
+        {reviewData ? Object.keys(reviewData).map((key) => {
+          return <ProgressBarProduct
+            key = {reviewData[key].id}
+            data = {{[key]:reviewData[key].value}}/>
+        }) : null
+        }
       </div>
     </div>
-
   )
 }
 

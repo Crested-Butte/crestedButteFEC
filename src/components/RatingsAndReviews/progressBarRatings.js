@@ -2,12 +2,12 @@ import React, { useState, useEffect } from "react";
 
 function ProgressBarRatings(props) {
 
-  let {starName, ratings, sumData} = props;
+  let {starName, ratings, sumData, onChange, onClick} = props;
 
-  console.log(props.onChange)
+  console.log(onChange)
 
   const selectStarFilter = () => {
-    props.onClick(starName);
+    onClick(starName);
   }
 
   const containerStyles = {
@@ -25,9 +25,9 @@ function ProgressBarRatings(props) {
   }
 
   return (
-    <div className = "flex-right-container ratings" value = {`${props.starName}`} onClick = {selectStarFilter}>
+    <div className = "flex-right-container ratings" value = {`${starName}`} onClick = {selectStarFilter}>
       <div>
-        <h6 className = "ratings-stars">{`${props.starName}`} Stars</h6>
+        <h6 className = "ratings-stars">{`${starName}`} Stars</h6>
       </div>
       <div style={containerStyles}>
         <div style={fillerStyles}></div>

@@ -5,18 +5,20 @@ const axios = require('axios').default;
 
 function AddReviewModal(props) {
   const[charsId, setCharsId] = useState(null);
-  let {showModal, closeModal} = props;
+  let {showModal, closeModal, productId} = props;
 
   const getCharsData = () => {
     axios({
       method: 'get',
       url: '/reviews/meta',
       params: {
-        product_id: props.productId
+        product_id: productId
       }
     })
       .then (res => {
-        return res.data.characteristics})
+        let {data} = res;
+        let {characteristics} = data;
+        return characteristics})
       .then (data =>
         {setCharsId(data)})
       .catch(err => console.log(err));
@@ -41,8 +43,6 @@ function AddReviewModal(props) {
               charsId = {charsId}
               productId = {props.productId}/>}
           </div>
-
-
         </div>
       </div>
     )

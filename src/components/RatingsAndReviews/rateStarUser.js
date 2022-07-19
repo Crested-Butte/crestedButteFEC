@@ -4,13 +4,15 @@ import React, {useState, useEffect} from 'react';
 function RateStarUser(props) {
   const[selectStars, setSelectStars] = useState([0,0,0,0,0])
 
+  let {onChange} = props;
+
   const getStarIdx = (e) => {
     let starVal = Number.parseInt(e.target.attributes.value.value);
     let selected = new Array(starVal).fill(1);
     let nonSelected = new Array(5 - starVal).fill(0);
     let slectPlsnonSelct = [...selected,...nonSelected]
     setSelectStars(slectPlsnonSelct);
-    props.onChange('ratings', starVal);
+    onChange('ratings', starVal);
   }
   return (
     <div>
@@ -30,4 +32,4 @@ function RateStarUser(props) {
   )
 }
 
-  export default RateStarUser
+  export default RateStarUser;

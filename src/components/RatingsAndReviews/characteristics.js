@@ -4,11 +4,11 @@ const axios = require('axios').default;
 function Characteristics(props){
   const[selectbtn, setSelectbtn] = useState();
 
-  let {name, id} = props;
+  let {name, id, onChange} = props;
 
   const handlebuttonChange = (e) => {
     setSelectbtn(e.target.value)
-    props.onChange(e, `${id}`);
+    onChange(e, `${id}`);
   }
 
   return (
